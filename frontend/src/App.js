@@ -2,6 +2,7 @@ import { ChakraProvider,extendTheme } from '@chakra-ui/react'
 import {BrowserRouter,Routes ,Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
+import Navbar from './components/Navbar';
 const theme = extendTheme({
   styles: {
     global: () => ({
@@ -18,7 +19,7 @@ function App() {
     <ChakraProvider theme={theme}>
     <div className="routes">
     <BrowserRouter>
-    {/* <Navbar/> */}
+    <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/cart" element={<Cart/>}/>
