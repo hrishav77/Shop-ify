@@ -1,39 +1,41 @@
-import { Card, CardBody, CardFooter,Image,Stack,Heading,Text,Divider,ButtonGroup,Button } from '@chakra-ui/react'
-
-import React from 'react'
+import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, Divider, ButtonGroup, Button } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import ItemOverlay from './ItemOverlay';
 
 export default function Item(props) {
-  return (
+  const [showFullDescription, setShowFullDescription] = useState(false);
   
-    <Card w="20%" h="10%" m="1%" borderRadius="5%">
-    <CardBody >
-    <Image
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
+  return (
+    <Card m="2" borderRadius="5%" w="300px" h="560px">
+      <CardBody> 
+        <Image src={props.url} borderRadius='lg' w="80%" h="40%" />
+        <Stack mt='6' spacing='3'>
+          <Heading size='md'>{props.title.slice(0,20)}</Heading>
+          <Text>
+          {props.description.slice(0, 50)}...
+          <ItemOverlay desc={props.description} url={props.url} title={props.title}/>
+         
+          </Text>
+          <Text color='blue.600' fontSize='2xl'>
+            {props.price}
+          </Text>
+        </Stack>
+        <Divider />
+        <ButtonGroup spacing='2'>
+          <Button variant='solid' colorScheme='blue'>
+            Buy now
+          </Button>
+          <Button variant='ghost' colorScheme='blue'>
+            Add to cart
+          </Button>
+        </ButtonGroup>
+      </CardBody>
       
-      src={props.url}
-      borderRadius='lg'
-    />
-    <Stack mt='6' spacing='3'>
-      <Heading size='md'>{props.title}</Heading>
-      <Text>
-        {props.description}
-      </Text>
-      <Text color='blue.600' fontSize='2xl'>
-        {props.price}
-      </Text>
-    </Stack>
-  </CardBody>
-  <Divider />
-  <CardFooter>
-    <ButtonGroup spacing='2'>
-      <Button variant='solid' colorScheme='blue'>
-        Buy now
-      </Button>
-      <Button variant='ghost' colorScheme='blue'>
-        Add to cart
-      </Button>
-    </ButtonGroup>
-  </CardFooter>
-</Card>
- 
-  )
+
+    </Card>
+  );
 }

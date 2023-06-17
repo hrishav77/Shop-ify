@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
 import Product from '../components/Product'
 import Starting from './Starting'
-export default function Home() {
-  const [catego,setcatego]=useState("")
-  const buttonHandler=(e)=>{
-    setcatego(e.target.value)
-  }
+import {BrowserRouter,Routes ,Route,Navigate } from "react-router-dom";
+
+export default function Home({buttonHandler}) {
+  
   return (
     <div>
-     {!catego && <Starting clicked={buttonHandler}/>}
-     {catego && <Product category={catego}/> }
+     <Starting clicked={buttonHandler} />
     </div>
   )
 }
