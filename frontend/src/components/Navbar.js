@@ -1,4 +1,5 @@
 import { Box, Flex, Input, Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -23,9 +24,11 @@ const Navbar = () => {
         />
         
       </Flex>
+      <Link to="/cart">
       <Button colorScheme="teal" size="sm">
           Cart
         </Button>
+      </Link>
     </Flex>
   );
 };

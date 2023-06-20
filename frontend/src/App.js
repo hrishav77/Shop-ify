@@ -1,10 +1,12 @@
 import { ChakraProvider,extendTheme } from '@chakra-ui/react'
-import {BrowserRouter,Routes ,Route, Navigate} from "react-router-dom";
+import {BrowserRouter,Routes ,Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Navbar from './components/Navbar';
 import React, { useState } from 'react'
 import Product from './components/Product';
+import CartProvider from './components/context/Cartcontext';
+
 
 const theme = extendTheme({
   styles: {
@@ -24,6 +26,7 @@ function App() {
     setcatego(customValue)
   }
   return (
+    <CartProvider>
     <ChakraProvider theme={theme}>
     <div className="routes">
     <BrowserRouter>
@@ -36,8 +39,9 @@ function App() {
     </Routes>
     </BrowserRouter>
     </div>
-
     </ChakraProvider>
+    </CartProvider>
+
   );
 }
 

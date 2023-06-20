@@ -1,27 +1,25 @@
-import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, Divider, ButtonGroup, Button } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import { Card, CardBody, Image, Stack, Heading, Text, Divider, ButtonGroup, Button } from '@chakra-ui/react';
+import React, { useContext } from 'react';
 import ItemOverlay from './ItemOverlay';
-
+import { CartContext } from './context/Cartcontext';
 export default function Item(props) {
-  const [showFullDescription, setShowFullDescription] = useState(false);
   
-  const toggleDescription = () => {
-    setShowFullDescription(!showFullDescription);
-  };
+  const a=useContext(CartContext);
+
 
   return (
-    <Card m="2" borderRadius="5%" w="300px" h="560px">
+    <Card m="2" borderRadius="5%" w="300px" h="500px" border="gold 3px solid">
       <CardBody> 
-        <Image src={props.url} borderRadius='lg' w="80%" h="40%" />
+        <Image src={props.url} borderRadius='lg' w="100%" h="250px" />
         <Stack mt='6' spacing='3'>
           <Heading size='md'>{props.title.slice(0,20)}</Heading>
           <Text>
-          {props.description.slice(0, 50)}...
+          {/* {props.description.slice(0, 50)}... */}
           <ItemOverlay desc={props.description} url={props.url} title={props.title}/>
          
           </Text>
           <Text color='blue.600' fontSize='2xl'>
-            {props.price}
+            ${props.price}
           </Text>
         </Stack>
         <Divider />
@@ -29,7 +27,7 @@ export default function Item(props) {
           <Button variant='solid' colorScheme='blue'>
             Buy now
           </Button>
-          <Button variant='ghost' colorScheme='blue'>
+          <Button variant='solid' colorScheme='blue' onClick={a.Addtocart(props.key)} >
             Add to cart
           </Button>
         </ButtonGroup>
