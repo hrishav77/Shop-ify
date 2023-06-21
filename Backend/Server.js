@@ -1,7 +1,8 @@
 require('dotenv').config()
 const express=require('express')
 const app=express()
-const userRoutes=require('./routes/User')
+const userRoute=require("./routes/users")
+const productRoute=require("./routes/products")
 const mongoose=require('mongoose')
 
 
@@ -11,8 +12,8 @@ const mongoose=require('mongoose')
 //     }
 // ));
 app.use(express.json())// this is used so that we can get the during from req.body when we post
-app.use('/users',userRoutes)
-
+app.use('/users',userRoute)
+app.use('/cart',productRoute)
 
 app.get("/",(req,res)=>{
 res.json({mssg:"welcome to the server"})
