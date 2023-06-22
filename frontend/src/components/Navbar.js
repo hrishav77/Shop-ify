@@ -14,7 +14,9 @@ const Navbar = () => {
     
       <Flex width="80%">
       <Box fontSize="2xl" >
+      <Link to="/">
        Shopify
+       </Link>
       </Box>
         <Input
           type="text"

@@ -4,13 +4,13 @@ const app=express()
 const userRoute=require("./routes/users")
 const productRoute=require("./routes/products")
 const mongoose=require('mongoose')
+const cors=require("cors")
 
-
-// app.use(
-//     cors({
-//         origin:"*",
-//     }
-// ));
+app.use(
+    cors({
+        origin:"*",
+    }
+));
 app.use(express.json())// this is used so that we can get the during from req.body when we post
 app.use('/users',userRoute)
 app.use('/cart',productRoute)

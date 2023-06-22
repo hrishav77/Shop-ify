@@ -3,13 +3,13 @@ const mongoose=require('mongoose')
 
 //get from cart
 const getProducts=async(req,res)=>{
-    const {id}=req.params
+    // const {id}=req.params
     // const products=await Product.find({id}).sort({createdAt:-1})
     // res.status(200).json(products)
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return  res.status(404).json({error:"no such product"})
-     }
-     const product=await Product.findById(id)
+    // if(!mongoose.Types.ObjectId.isValid(id)){
+    //     return  res.status(404).json({error:"no such product"})
+    //  }
+     const product=await Product.find({})
      if(!product){
          return res.status(404).json({error:"product does not exist"})
      }
