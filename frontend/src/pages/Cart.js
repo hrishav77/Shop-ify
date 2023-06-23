@@ -21,7 +21,7 @@ export default function Cart() {
         
       {cartItem &&
           cartItem.map((item) => (
-            <Cartitem title={item.title} url={item.url} price={item.price} quantity={item.quantity}/>
+            <Cartitem title={item.title} url={item.image} price={item.cost} quantity={item.quantity}/>
           ))}
         
         </Box>

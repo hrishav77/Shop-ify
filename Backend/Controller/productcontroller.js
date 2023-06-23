@@ -18,11 +18,11 @@ const getProducts=async(req,res)=>{
 
 //add to cart
 const postProduct=async(req,res)=>{
-    const {title,quantity,image,user_id}=req.body
+    const {title,quantity,image,user_id,cost}=req.body
     //add the goal to database
     try{
     // const user_id=req.user._id
-    const product=await Product.create({title,quantity,image,user_id}) 
+    const product=await Product.create({title,quantity,image,user_id,cost}) 
     res.status(200).json(product)
     }catch(error){
         res.status(400).json({error:error.message})

@@ -5,8 +5,19 @@ import { CartContext } from './context/Cartcontext';
 export default function Item(props) {
   
   const a=useContext(CartContext);
-
-
+  // const cartObject={props.title,props}
+const Addtocart=async()=>{
+  const data = { title: props.title,quantity:1, image:props.url, cost:props.price,user_id:props.id };
+  const response=await fetch("http://localhost:3000/cart",{
+    method:"post",
+    body:JSON.stringify(data),
+    headers:{
+        "Content-Type":"application/json"
+    }
+})
+        const json=await response.json()
+        if(!response.ok){console.log(json.error)}
+}
   return (
     <Card m="2" borderRadius="5%" w="300px" h="500px" border="gold 3px solid">
       <CardBody> 
@@ -27,7 +38,7 @@ export default function Item(props) {
           <Button variant='solid' colorScheme='blue'>
             Buy now
           </Button>
-          <Button variant='solid' colorScheme='blue' onClick={a.Addtocart(props.key)} >
+          <Button variant='solid' colorScheme='blue' onClick={Addtocart} >
             Add to cart
           </Button>
         </ButtonGroup>
