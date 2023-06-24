@@ -6,11 +6,21 @@ export default function Product(props) {
   const [items, setItems] = useState("");
 
   const fetchProducts = async () => {
-    const data = await fetch("https://fakestoreapi.com/products/category/" + props.category);
-    const datajson = await data.json();
+    if(props.category==="all"){
+      const data = await fetch("https://fakestoreapi.com/products");
+      const datajson = await data.json();
     if (data.ok) {
       setItems(datajson);
     }
+    }
+    else{
+      const data = await fetch("https://fakestoreapi.com/products/category/" +props.category);
+      const datajson = await data.json();
+    if (data.ok) {
+      setItems(datajson);
+    }
+    } 
+    
   };
 
   useEffect(() => {

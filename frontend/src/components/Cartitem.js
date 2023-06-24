@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Flex,Text,Box,Image, Button, Input, Spacer } from '@chakra-ui/react'
-export default function Cartitem({title,url,price,quantity}) {
+import { CartContext } from './context/Cartcontext'
+export default function Cartitem({title,url,price,quantity,id}) {
+  const a=useContext(CartContext)
+  const [deleted,setdelete]=useState(true)
+  const removeCart=async()=>{
+    const data=await fetch("http://localhost:3000/cart/"+id,{
+      method:'DELETE',
+    })
+   
+    const jsondata=await data.json()
+    if(data.ok){
+      console.log("deleted")
+      setdelete(false)
+      a.setCartcount(a.Cartcount-1)
+    }
+  }
   return (
-    <Flex p={4} boxShadow="md" border="brown 3px solid" borderRadius="lg" m="8">
+    <>
+    {
+      deleted && (<Flex p={4} boxShadow="md" border="brown 3px solid" borderRadius="lg" m="8">
       <Box m="3">
         <Image src={url} alt="Product Image" w="150px" h="150px" boxShadow="dark-lg" objectFit="cover" borderRadius="10%"/>
       </Box>
@@ -16,6 +33,8 @@ export default function Cartitem({title,url,price,quantity}) {
           <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Qty:{quantity}</Text> 
       </Flex>
         </Box>
-    </Flex>
+        <Button onClick={removeCart}>Remove</Button>
+    </Flex>)}
+    </>
   )
 }

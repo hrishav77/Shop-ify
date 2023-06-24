@@ -7,7 +7,7 @@ router.get("/",a.getProducts)
 router.post("/",a.postProduct)
 
 //delete
-router.delete("/",a.deleteProduct)
+router.delete("/:id",a.deleteProduct)
 
 
 module.exports=router;

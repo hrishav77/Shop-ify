@@ -6,10 +6,10 @@ const CartProvider=(props)=>{
 const [Citems, setItems] = useState("");
 const [Curl,setUrl]=useState("")
 const [Cimage,setimage]=useState("")
-const [Ctitle,setTitle]=useState("")
+const [Cartcount,setCartcount]=useState(0)
 
 return(
-<CartContext.Provider value={{Citems,setItems,Curl,setUrl,Cimage,setimage,Ctitle,setTitle}}>
+<CartContext.Provider value={{Citems,setItems,Curl,setUrl,Cimage,setimage,Cartcount,setCartcount}}>
     {props.children}
 </CartContext.Provider>
 )

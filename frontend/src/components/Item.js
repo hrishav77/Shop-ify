@@ -6,6 +6,7 @@ export default function Item(props) {
   
   const a=useContext(CartContext);
   // const cartObject={props.title,props}
+
 const Addtocart=async()=>{
   const data = { title: props.title,quantity:1, image:props.url, cost:props.price,user_id:props.id };
   const response=await fetch("http://localhost:3000/cart",{
@@ -16,10 +17,13 @@ const Addtocart=async()=>{
     }
 })
         const json=await response.json()
+        console.log(a.Cartcount)
+        a.setCartcount(a.Cartcount+1)
+        
         if(!response.ok){console.log(json.error)}
 }
   return (
-    <Card m="2" borderRadius="5%" w="300px" h="500px" border="gold 3px solid">
+    <Card m="2" borderRadius="5%" w="280px" h="500px" border="gold 3px solid">
       <CardBody> 
         <Image src={props.url} borderRadius='lg' w="100%" h="250px" />
         <Stack mt='6' spacing='3'>
