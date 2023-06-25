@@ -3,10 +3,11 @@ import {BrowserRouter,Routes ,Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Navbar from './components/Navbar';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Product from './components/Product';
 import CartProvider from './components/context/Cartcontext';
-
+import ProductUnit from './pages/ProductUnit';
+import { CartContext } from './components/context/Cartcontext';
 
 const theme = extendTheme({
   styles: {
@@ -19,12 +20,14 @@ const theme = extendTheme({
 });
 
 function App() {
+  const a=useContext(CartContext)
   const [catego,setcatego]=useState("")
   const buttonHandler=(e)=>{
     const customValue = e.target.getAttribute("data-value");
     console.log(customValue)
     setcatego(customValue)
   }
+
   return (
     <CartProvider>
     <ChakraProvider theme={theme}>
@@ -35,6 +38,8 @@ function App() {
       <Route path="/" element={<Home  buttonHandler={buttonHandler}/>}/>
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/product" element={<Product category={catego}/>}/>
+      <Route path="/singleproduct" element={<ProductUnit/>}/>
+
 
     </Routes>
     </BrowserRouter>

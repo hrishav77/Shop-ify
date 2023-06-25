@@ -13,7 +13,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
     if(data.ok){
       console.log("deleted")
       setdelete(false)
-      a.setCartcount(a.Cartcount-1)
+      a.setCartCount(a.cartCount-1)
     }
   }
   return (

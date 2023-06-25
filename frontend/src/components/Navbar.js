@@ -32,7 +32,7 @@ const Navbar = () => {
       <Link to="/cart">
       <Button colorScheme="teal" size="sm">
       <Badge colorScheme="purple" variant="solid" borderRadius="50%" px={2}>
-        {a.Cartcount}
+        {a.cartCount}
       </Badge>
           Cart
         </Button>
