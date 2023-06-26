@@ -11,12 +11,13 @@ const CartProvider=(props)=>{
     };
 
     const Addtocart=async({title,url,price,id,quantity})=>{
+      console.log(id)
       const existingItemResponse = await fetch(`http://localhost:3000/cart/${id}`);
       const existingItem = await existingItemResponse.json();
     
       if (existingItem.length > 0) {
         // Item already exists, increase the quantity by 1
-        const existingItemId = existingItem[0]._id;
+        const existingItemId = existingItem[0].user_id;
         const updatedQuantity = existingItem[0].quantity + 1;
         
         // Update the quantity of the existing item in the cart
