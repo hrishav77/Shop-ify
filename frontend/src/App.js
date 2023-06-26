@@ -8,6 +8,7 @@ import Product from './components/Product';
 import CartProvider from './components/context/Cartcontext';
 import ProductUnit from './pages/ProductUnit';
 import { CartContext } from './components/context/Cartcontext';
+import Checkout from './pages/Checkout';
 
 const theme = extendTheme({
   styles: {
@@ -39,6 +40,8 @@ function App() {
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/product" element={<Product category={catego}/>}/>
       <Route path="/singleproduct" element={<ProductUnit/>}/>
+      <Route path="/checkout" element={<Checkout/>}/>
+
 
 
     </Routes>

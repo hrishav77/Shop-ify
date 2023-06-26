@@ -11,6 +11,29 @@ const CartProvider=(props)=>{
     };
 
     const Addtocart=async({title,url,price,id,quantity})=>{
+      const existingItemResponse = await fetch(`http://localhost:3000/cart/${id}`);
+      const existingItem = await existingItemResponse.json();
+    
+      if (existingItem.length > 0) {
+        // Item already exists, increase the quantity by 1
+        const existingItemId = existingItem[0]._id;
+        const updatedQuantity = existingItem[0].quantity + 1;
+        
+        // Update the quantity of the existing item in the cart
+        const updateResponse = await fetch(`http://localhost:3000/cart/${existingItemId}`, {
+          method: "put",
+          body: JSON.stringify({quantity:updatedQuantity }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+    
+        if (!updateResponse.ok) {
+          const updateJson = await updateResponse.json();
+          console.log(updateJson.error);
+        }
+      } 
+      else{
         const data = { title:title,quantity:quantity, image:url, cost:price,user_id:id };
         console.log(data)
         const response=await fetch("http://localhost:3000/cart",{
@@ -24,6 +47,7 @@ const CartProvider=(props)=>{
               setCartCount(cartCount+1)
               
               if(!response.ok){console.log(json.error)}
+    }
       }
     
     return (

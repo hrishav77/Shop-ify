@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Cartitem from '../components/Cartitem'
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Button, Spacer } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 export default function Cart() {
   const [cartItem,setItem]=useState("")
   const fetchcart=async()=>{
@@ -23,7 +24,13 @@ export default function Cart() {
           cartItem.map((item) => (
             <Cartitem title={item.title} url={item.image} price={item.cost} quantity={item.quantity} id={item._id}/>
           ))}
-        
+          
+            <Flex>
+              <Spacer/>
+            <Link to="/checkout">
+        <Button m="5" mr="10">Check out</Button></Link>
+
+            </Flex>
         </Box>
     </Flex>
   )
