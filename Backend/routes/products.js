@@ -5,6 +5,7 @@ const a=require("../Controller/productcontroller")
 router.get("/",a.getProducts)
 //add to cart
 router.get("/:id",a.getProductsbyid)
+router.get("/productid/:id",a.getProductsbyprodid)
 
 router.post("/",a.postProduct)
 

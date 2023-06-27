@@ -4,6 +4,7 @@ import { CartContext } from './context/Cartcontext'
 export default function Cartitem({title,url,price,quantity,id}) {
   const a=useContext(CartContext)
   const [deleted,setdelete]=useState(true)
+  const [quant,setquat]=useState(quantity)
   const removeCart=async()=>{
     const data=await fetch("http://localhost:3000/cart/"+id,{
       method:'DELETE',
@@ -14,6 +15,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
       console.log("deleted")
       setdelete(false)
       a.setCartCount(a.cartCount-1)
+      setquat(quantity)
     }
   }
   return (
@@ -30,7 +32,10 @@ export default function Cartitem({title,url,price,quantity,id}) {
       </Flex>
       <Flex flex="1" justify="flex-start" align="inherit">
            <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Price: ${price}</Text>
-          <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Qty:{quantity}</Text> 
+           <Button onClick={()=>{a.ChangeQuantity({id:id,adder:1});setquat(quant+1);}}>+</Button>
+          <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Qty:{quant}</Text> 
+          <Button onClick={()=>{a.ChangeQuantity({id:id,adder:-1});setquat(quant-1);}}>-</Button>
+
       </Flex>
         </Box>
         <Button onClick={removeCart}>Remove</Button>

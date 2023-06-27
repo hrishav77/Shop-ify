@@ -22,7 +22,7 @@ export default function Cart() {
         
       {cartItem &&
           cartItem.map((item) => (
-            <Cartitem title={item.title} url={item.image} price={item.cost} quantity={item.quantity} id={item._id}/>
+            <Cartitem title={item.title} url={item.image} price={item.cost} quantity={item.quantity} id={item._id} Key={item._id}/>
           ))}
           
             <Flex>

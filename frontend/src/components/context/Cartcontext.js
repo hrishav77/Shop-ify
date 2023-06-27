@@ -9,10 +9,35 @@ const CartProvider=(props)=>{
       setProduct({url:url,description:desc,title:title,price:price,id:id})
         console.log("clicked")
     };
-
-    const Addtocart=async({title,url,price,id,quantity})=>{
+    const ChangeQuantity=async({id,adder})=>{
       console.log(id)
       const existingItemResponse = await fetch(`http://localhost:3000/cart/${id}`);
+      const existingItem = await existingItemResponse.json();
+      console.log(existingItem.user_id)
+      if (existingItem.length > 0) 
+        console.log("adder")
+        // Item already exists, increase the quantity by 1
+        const existingItemId = existingItem.user_id;
+        const updatedQuantity = existingItem.quantity+adder;
+        
+        // Update the quantity of the existing item in the cart
+        const updateResponse = await fetch(`http://localhost:3000/cart/${existingItemId}`, {
+          method: "put",
+          body: JSON.stringify({quantity:updatedQuantity }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+    
+        if (!updateResponse.ok) {
+          const updateJson = await updateResponse.json();
+          console.log(updateJson.error);
+        }
+      
+  }
+    const Addtocart=async({title,url,price,id,quantity})=>{
+    
+      const existingItemResponse = await fetch(`http://localhost:3000/cart/productid/${id}`);
       const existingItem = await existingItemResponse.json();
     
       if (existingItem.length > 0) {
@@ -52,7 +77,7 @@ const CartProvider=(props)=>{
       }
     
     return (
-      <CartContext.Provider value={{ cartCount, setCartCount, product, setProduct, clickHandler,Addtocart}}>
+      <CartContext.Provider value={{ cartCount, setCartCount, product, setProduct, clickHandler,Addtocart,ChangeQuantity}}>
         {props.children}
       </CartContext.Provider>
     );

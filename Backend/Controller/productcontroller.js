@@ -15,7 +15,23 @@ const getProductsbyid = async (req, res) => {
     const { id} = req.params;
   
     try {
-      const products = await Product.find({ user_id:id });
+      const products = await Product.findById(id);
+  
+      if (!products || products.length === 0) {
+        return res.status(404).json({ error: "Product not found" });
+      }
+  
+      res.status(200).json(products);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  }
+  const getProductsbyprodid = async (req, res) => {
+    const {id} = req.params;
+  
+    try {
+      const products = await Product.find({user_id:id});
   
       if (!products || products.length === 0) {
         return res.status(404).json({ error: "Product not found" });
@@ -74,4 +90,4 @@ const updateProduct=async(req,res)=>{
 
 
 
-module.exports={getProducts,postProduct,deleteProduct,updateProduct,getProductsbyid}
+module.exports={getProducts,postProduct,deleteProduct,updateProduct,getProductsbyid,getProductsbyprodid}
