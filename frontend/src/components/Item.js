@@ -18,7 +18,7 @@ export default function Item(props) {
           <Heading size='md'>{props.title.slice(0,20)}</Heading>
           <Text>
           {/* {props.description.slice(0, 50)}... */}
-          <ItemOverlay desc={props.description} url={props.url} title={props.title}/>
+          {/* <ItemOverlay desc={props.description} url={props.url} title={props.title}/> */}
           
           </Text>
           <Text color='blue.600' fontSize='2xl'>

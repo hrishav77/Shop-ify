@@ -34,7 +34,7 @@ function App() {
     <ChakraProvider theme={theme}>
     <div className="routes">
     <BrowserRouter>
-    <Navbar/>
+    <Navbar buttonHandler={buttonHandler}/>
     <Routes>
       <Route path="/" element={<Home  buttonHandler={buttonHandler}/>}/>
       <Route path="/cart" element={<Cart/>}/>

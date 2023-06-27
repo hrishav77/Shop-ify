@@ -32,10 +32,11 @@ export default function Cartitem({title,url,price,quantity,id}) {
       </Flex>
       <Flex flex="1" justify="flex-start" align="inherit">
            <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Price: ${price}</Text>
-           <Button onClick={()=>{a.ChangeQuantity({id:id,adder:1});setquat(quant+1);}}>+</Button>
-          <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Qty:{quant}</Text> 
-          <Button onClick={()=>{a.ChangeQuantity({id:id,adder:-1});setquat(quant-1);}}>-</Button>
-
+           <Flex justifyContent="center" alignItems="center">
+  <Button size="xs" onClick={() => { a.ChangeQuantity({id: id, adder: 1}); setquat(quant + 1); }}>+</Button>
+  <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Qty: {quant}</Text> 
+  <Button size="xs" onClick={() => { a.ChangeQuantity({id: id, adder: -1}); setquat(quant - 1); }}>-</Button>
+</Flex>
       </Flex>
         </Box>
         <Button onClick={removeCart}>Remove</Button>
