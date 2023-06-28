@@ -2,8 +2,18 @@ import {React,useState,createContext} from "react";
 export const CartContext=createContext();
 
 const CartProvider=(props)=>{
-    const [product, setProduct] = useState({ url: "", id: "", title: "", description: "" ,price:""});
+    const [product, setProduct] = useState({ url: "", id: "", title: "", description: "" ,price:""});//this is for the single product page
     const [cartCount, setCartCount] = useState(0);
+    const [cartItem,setItem]=useState("")
+    
+    const fetchcart=async()=>{
+      const data=await fetch("http://localhost:3000/cart")
+      const cartjson=await data.json()
+      if(data.ok){
+        setItem(cartjson)
+      }
+    }
+   
     
     const clickHandler = ({url,title,desc,price,id}) => {
       setProduct({url:url,description:desc,title:title,price:price,id:id})
@@ -77,7 +87,7 @@ const CartProvider=(props)=>{
       }
     
     return (
-      <CartContext.Provider value={{ cartCount, setCartCount, product, setProduct, clickHandler,Addtocart,ChangeQuantity}}>
+      <CartContext.Provider value={{ cartCount, setCartCount, product, setProduct, clickHandler,Addtocart,ChangeQuantity,fetchcart,cartItem,setItem}}>
         {props.children}
       </CartContext.Provider>
     );

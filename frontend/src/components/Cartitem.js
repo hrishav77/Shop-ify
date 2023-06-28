@@ -21,7 +21,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
   return (
     <>
     {
-      deleted && (<Flex p={4} boxShadow="md" border="brown 3px solid" borderRadius="lg" m="8">
+      deleted && (<Flex p={4} boxShadow="md"  bg="blackAlpha.200" borderRadius="lg" m="8">
       <Box m="3">
         <Image src={url} alt="Product Image" w="150px" h="150px" boxShadow="dark-lg" objectFit="cover" borderRadius="10%"/>
       </Box>

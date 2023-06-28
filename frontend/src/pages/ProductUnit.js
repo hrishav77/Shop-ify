@@ -8,7 +8,7 @@ export default function ProductUnit() {
     <Flex>
     <Box flex="0 0 40%">
         <Box m="10">
-        <Image src={a.product.url}  borderRadius="10%" m="5"/>
+        <Image src={a.product.url}  borderRadius="5%" m="5"/>
         </Box>
     </Box>
     <Box flex="0 0 60%">

@@ -9,13 +9,11 @@ export default function Item(props) {
   
 
   return (
-    <Card m="2" borderRadius="5%" w="280px" h="500px" border="gold 3px solid">
-      <CardBody> 
-       
-       
+    <Card m="2" borderRadius="5%" w="280px" h="500px" border="gold 2px solid" bg="white.200" boxShadow="lg">
+      <CardBody m="5"> 
         <Image src={props.url} borderRadius='lg' w="100%" h="250px" />
-        <Stack mt='6' spacing='3'>
-          <Heading size='md'>{props.title.slice(0,20)}</Heading>
+        <Stack mt='3' spacing='3'>
+          <Heading size='md'>{props.title.slice(0,20)}...</Heading>
           <Text>
           {/* {props.description.slice(0, 50)}... */}
           {/* <ItemOverlay desc={props.description} url={props.url} title={props.title}/> */}
@@ -30,14 +28,11 @@ export default function Item(props) {
           <Button variant='solid' colorScheme='blue'>
             Buy now
           </Button>
-         
           <Link to="/singleproduct" >
           <Button colorScheme='teal' onClick={() => a.clickHandler({url:props.url, title:props.title, price:props.price,desc:props.description,id:props.id})}>Click to see</Button>
         </Link>
         </ButtonGroup>
       </CardBody>
-      
-
     </Card>
   );
 }
