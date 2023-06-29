@@ -2,7 +2,7 @@ import { Box, Flex, Input, Button,Badge,Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { CartContext } from './context/Cartcontext';
 import { useContext } from "react";
-
+import CategoryDrawer from "./Drawer";
 const Navbar = (props) => {
   const a=useContext(CartContext)
   return (
@@ -29,9 +29,8 @@ const Navbar = (props) => {
         />
         
       </Flex>
-      <Link to="/product">
-        <Text data-value="men's clothing" onClick={props.buttonHandler}>mens Clothing</Text>
-      </Link>
+      <CategoryDrawer buttonHandler={props.buttonHandler}/>
+  
       <Link to="/cart">
       <Button colorScheme="teal" size="sm">
       <Badge colorScheme="purple" variant="solid" borderRadius="50%" px={2}>

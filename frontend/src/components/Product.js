@@ -25,7 +25,7 @@ export default function Product(props) {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [props.category]);
 
   return (
     <div>

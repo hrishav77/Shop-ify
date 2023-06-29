@@ -1,5 +1,5 @@
 import { ChakraProvider,extendTheme } from '@chakra-ui/react'
-import {BrowserRouter,Routes ,Route} from "react-router-dom";
+import {BrowserRouter,Routes ,Route, Link} from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Navbar from './components/Navbar';
