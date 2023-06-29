@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../components/context/Cartcontext';
 import CheckoutItem from '../components/CheckoutItem';
 import { Box, Button, Flex, Spacer, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 export default function Checkout() {
   const a = useContext(CartContext);
   const [totalCost, setTotalCost] = useState(0);
@@ -39,6 +40,9 @@ export default function Checkout() {
 
         <Flex>
         <Spacer/>
+        <Link to="/cart">
+        <Button m="3" size="lg" colorScheme="blackAlpha">Go back</Button>
+        </Link>
         <Button m="3" size="lg" colorScheme="yellow">Proceed</Button>
         </Flex>
         </Box>

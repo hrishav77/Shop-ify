@@ -1,10 +1,13 @@
 import { Box, Flex, Input, Button,Badge,Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { CartContext } from './context/Cartcontext';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CategoryDrawer from "./Drawer";
 const Navbar = (props) => {
   const a=useContext(CartContext)
+  useEffect(()=>{
+    a.setCartCount(a.cartItem.length)
+  },[a.cartItem.length])
   return (
     <Flex
       as="nav"
