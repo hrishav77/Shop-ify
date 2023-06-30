@@ -5,9 +5,10 @@ const CartProvider=(props)=>{
     const [product, setProduct] = useState({ url: "", id: "", title: "", description: "" ,price:""});//this is for the single product page
     const [cartCount, setCartCount] = useState(0);
     const [cartItem,setItem]=useState("")
+    const [totalCost, setTotalCost] = useState(0);
     
     const fetchcart=async()=>{
-      const data=await fetch("http://localhost:3000/cart")
+      const data=await fetch("http://localhost:4000/cart")
       const cartjson=await data.json()
       if(data.ok){
         setItem(cartjson)
@@ -21,7 +22,7 @@ const CartProvider=(props)=>{
     };
     const ChangeQuantity=async({id,adder})=>{
       console.log(id)
-      const existingItemResponse = await fetch(`http://localhost:3000/cart/${id}`);
+      const existingItemResponse = await fetch(`http://localhost:4000/cart/${id}`);
       const existingItem = await existingItemResponse.json();
       console.log(existingItem.user_id)
       if (existingItem.length > 0) 
@@ -31,7 +32,7 @@ const CartProvider=(props)=>{
         const updatedQuantity = existingItem.quantity+adder;
         
         // Update the quantity of the existing item in the cart
-        const updateResponse = await fetch(`http://localhost:3000/cart/${existingItemId}`, {
+        const updateResponse = await fetch(`http://localhost:4000/cart/${existingItemId}`, {
           method: "put",
           body: JSON.stringify({quantity:updatedQuantity }),
           headers: {
@@ -47,7 +48,7 @@ const CartProvider=(props)=>{
   }
     const Addtocart=async({title,url,price,id,quantity})=>{
     
-      const existingItemResponse = await fetch(`http://localhost:3000/cart/productid/${id}`);
+      const existingItemResponse = await fetch(`http://localhost:4000/cart/productid/${id}`);
       const existingItem = await existingItemResponse.json();
     
       if (existingItem.length > 0) {
@@ -56,7 +57,7 @@ const CartProvider=(props)=>{
         const updatedQuantity = existingItem[0].quantity + 1;
         
         // Update the quantity of the existing item in the cart
-        const updateResponse = await fetch(`http://localhost:3000/cart/${existingItemId}`, {
+        const updateResponse = await fetch(`http://localhost:4000/cart/${existingItemId}`, {
           method: "put",
           body: JSON.stringify({quantity:updatedQuantity }),
           headers: {
@@ -72,7 +73,7 @@ const CartProvider=(props)=>{
       else{
         const data = { title:title,quantity:quantity, image:url, cost:price,user_id:id };
         console.log(data)
-        const response=await fetch("http://localhost:3000/cart",{
+        const response=await fetch("http://localhost:4000/cart",{
           method:"post",
           body:JSON.stringify(data),
           headers:{
@@ -87,7 +88,7 @@ const CartProvider=(props)=>{
       }
     
     return (
-      <CartContext.Provider value={{ cartCount, setCartCount, product, setProduct, clickHandler,Addtocart,ChangeQuantity,fetchcart,cartItem,setItem}}>
+      <CartContext.Provider value={{ totalCost, setTotalCost,cartCount, setCartCount, product, setProduct, clickHandler,Addtocart,ChangeQuantity,fetchcart,cartItem,setItem}}>
         {props.children}
       </CartContext.Provider>
     );

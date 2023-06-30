@@ -3,9 +3,9 @@ import { CartContext } from '../components/context/Cartcontext';
 import CheckoutItem from '../components/CheckoutItem';
 import { Box, Button, Flex, Spacer, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import PaymentOverlay from '../components/PaymentOverlay';
 export default function Checkout() {
   const a = useContext(CartContext);
-  const [totalCost, setTotalCost] = useState(0);
 
   useEffect(() => {
     a.fetchcart();
@@ -24,7 +24,7 @@ export default function Checkout() {
         console.log(a.cartItem[i])
       }
       const subtotal=total.toFixed(2)//to tound off to two decimal places
-      setTotalCost(subtotal);
+      a.setTotalCost(subtotal);
     }
   };
 
@@ -36,14 +36,14 @@ export default function Checkout() {
           <CheckoutItem title={item.title} url={item.image} price={item.cost} quantity={item.quantity} />
         ))}
        
-      <Text ml="10" fontSize="3xl" fontWeight="bold">Total Cost: ${totalCost}</Text>
+      <Text ml="10" fontSize="3xl" fontWeight="bold">Total Cost: ${a.totalCost}</Text>
 
         <Flex>
         <Spacer/>
         <Link to="/cart">
         <Button m="3" size="lg" colorScheme="blackAlpha">Go back</Button>
         </Link>
-        <Button m="3" size="lg" colorScheme="yellow">Proceed</Button>
+        <PaymentOverlay/>
         </Flex>
         </Box>
         

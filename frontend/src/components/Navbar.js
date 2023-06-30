@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from './context/Cartcontext';
 import { useContext, useEffect } from "react";
 import CategoryDrawer from "./Drawer";
+import SearchForm from "./Searchbar";
 const Navbar = (props) => {
   const a=useContext(CartContext)
   useEffect(()=>{
@@ -24,12 +25,7 @@ const Navbar = (props) => {
        Shopify
        </Link>
       </Box>
-        <Input
-          type="text"
-          placeholder="Search"
-          marginLeft="1rem"
-          size="md"
-        />
+        <SearchForm/>
         
       </Flex>
       <CategoryDrawer buttonHandler={props.buttonHandler}/>

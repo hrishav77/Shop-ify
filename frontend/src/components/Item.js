@@ -1,6 +1,5 @@
 import { Card, CardBody, Image, Stack, Heading, Text, Divider, ButtonGroup, Button } from '@chakra-ui/react';
 import React, { useContext } from 'react';
-import ItemOverlay from './ItemOverlay';
 import { CartContext } from './context/Cartcontext';
 import { Link } from 'react-router-dom';
 export default function Item(props) {

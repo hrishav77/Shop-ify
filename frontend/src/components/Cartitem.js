@@ -6,7 +6,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
   const [deleted,setdelete]=useState(true)
   const [quant,setquat]=useState(quantity)
   const removeCart=async()=>{
-    const data=await fetch("http://localhost:3000/cart/"+id,{
+    const data=await fetch("http://localhost:4000/cart/"+id,{
       method:'DELETE',
     })
    
@@ -20,8 +20,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
   }
   return (
     <>
-    {
-      deleted && (<Flex p={4} boxShadow="md"  bg="blackAlpha.200" borderRadius="lg" m="8">
+     <Flex p={4} boxShadow="md"  bg="blackAlpha.200" borderRadius="lg" m="8">
       <Box m="3">
         <Image src={url} alt="Product Image" w="150px" h="150px" boxShadow="dark-lg" objectFit="cover" borderRadius="10%"/>
       </Box>
@@ -40,7 +39,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
       </Flex>
         </Box>
         <Button onClick={removeCart}>Remove</Button>
-    </Flex>)}
+    </Flex>
     </>
   )
 }

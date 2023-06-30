@@ -31,6 +31,9 @@ export default function CategoryDrawer(props) {
                 <Link to="/product">
                 <Text fontSize="xl" m="3" data-value="jewelery" onClick={props.buttonHandler}>Jewelery</Text>
                 </Link>
+                <Link to="/product">
+                <Text fontSize="xl" m="3" data-value="electronics" onClick={props.buttonHandler}>Electronics</Text>
+                </Link>
             
             </DrawerBody>
           </DrawerContent>

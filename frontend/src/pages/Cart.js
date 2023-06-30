@@ -22,7 +22,7 @@ export default function Cart() {
             <Flex>
               <Spacer/>
             <Link to="/checkout">
-        <Button m="5" mr="10">Check out</Button></Link>
+        <Button m="5" mr="10" colorScheme='green'>Check out</Button></Link>
 
             </Flex>
         </Box>
