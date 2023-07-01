@@ -3,7 +3,7 @@ import { Flex,Text,Box,Image, Button, Input, Spacer } from '@chakra-ui/react'
 import { CartContext } from './context/Cartcontext'
 export default function Cartitem({title,url,price,quantity,id}) {
   const a=useContext(CartContext)
-  const [deleted,setdelete]=useState(true)
+  // const [deleted,setdelete]=useState(true)
   const [quant,setquat]=useState(quantity)
   const removeCart=async()=>{
     const data=await fetch("http://localhost:4000/cart/"+id,{
@@ -12,9 +12,18 @@ export default function Cartitem({title,url,price,quantity,id}) {
    
     const jsondata=await data.json()
     if(data.ok){
-      console.log("deleted")
-      setdelete(false)
+      // console.log("deleted")
+      // setdelete(false)
       a.setCartCount(a.cartCount-1)
+      // setquat(quantity)
+    }
+  }
+  const quantityHandler=(quantity)=>{
+    a.ChangeQuantity({id: id, adder: -1});
+    if(quantity<=0){
+      removeCart()
+    }
+    else{
       setquat(quantity)
     }
   }
@@ -32,9 +41,10 @@ export default function Cartitem({title,url,price,quantity,id}) {
       <Flex flex="1" justify="flex-start" align="inherit">
            <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Price: ${price}</Text>
            <Flex justifyContent="center" alignItems="center">
-  <Button size="xs" onClick={() => { a.ChangeQuantity({id: id, adder: 1}); setquat(quant + 1); }}>+</Button>
+  <Button size="xs" onClick={() => { quantityHandler(quantity-1) }}>-</Button>
   <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3">Qty: {quant}</Text> 
-  <Button size="xs" onClick={() => { a.ChangeQuantity({id: id, adder: -1}); setquat(quant - 1); }}>-</Button>
+  <Button size="xs" onClick={() => { a.ChangeQuantity({id: id, adder: 1}); setquat(quant + 1); }}>+</Button>
+
 </Flex>
       </Flex>
         </Box>

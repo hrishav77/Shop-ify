@@ -8,11 +8,13 @@ const CartProvider=(props)=>{
     const [totalCost, setTotalCost] = useState(0);
     
     const fetchcart=async()=>{
+      
       const data=await fetch("http://localhost:4000/cart")
       const cartjson=await data.json()
       if(data.ok){
         setItem(cartjson)
       }
+     
     }
    
     
@@ -47,10 +49,10 @@ const CartProvider=(props)=>{
       
   }
     const Addtocart=async({title,url,price,id,quantity})=>{
-    
+      
       const existingItemResponse = await fetch(`http://localhost:4000/cart/productid/${id}`);
       const existingItem = await existingItemResponse.json();
-    
+      
       if (existingItem.length > 0) {
         // Item already exists, increase the quantity by 1
         const existingItemId = existingItem[0].user_id;

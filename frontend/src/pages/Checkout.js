@@ -9,6 +9,7 @@ export default function Checkout() {
 
   useEffect(() => {
     a.fetchcart();
+    console.log("fetched")
   }, []);
 
   useEffect(() => {
@@ -21,13 +22,12 @@ export default function Checkout() {
       let total=0;
       for(let i=0;i<a.cartItem.length;i++){
         total+=a.cartItem[i].cost*a.cartItem[i].quantity
-        console.log(a.cartItem[i])
       }
       const subtotal=total.toFixed(2)//to tound off to two decimal places
       a.setTotalCost(subtotal);
     }
   };
-
+ 
   return (
     <Flex justify="center">
       <Box border="white 3px solid" bg="white" m="3" borderRadius="10" w="60%">

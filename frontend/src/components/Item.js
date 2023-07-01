@@ -24,9 +24,11 @@ export default function Item(props) {
         </Stack>
         <Divider />
         <ButtonGroup spacing='2'>
-          <Button variant='solid' colorScheme='blue'>
+          <Link to="/cart">
+          <Button variant='solid' colorScheme='blue' onClick={()=>a.Addtocart({title:props.title,url:props.url,quantity:1,price:props.price,id:props.id})} >
             Buy now
           </Button>
+          </Link>
           <Link to="/singleproduct" >
           <Button colorScheme='teal' onClick={() => a.clickHandler({url:props.url, title:props.title, price:props.price,desc:props.description,id:props.id})}>Click to see</Button>
         </Link>
