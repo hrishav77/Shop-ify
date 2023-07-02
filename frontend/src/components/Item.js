@@ -1,7 +1,8 @@
-import { Card, CardBody, Image, Stack, Heading, Text, Divider, ButtonGroup, Button } from '@chakra-ui/react';
+import { Card, CardBody, Image, Stack, Heading, Text, Divider, ButtonGroup, Button, Box } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import { CartContext } from './context/Cartcontext';
 import { Link } from 'react-router-dom';
+import Rating from './Rating';
 export default function Item(props) {
   const a=useContext(CartContext);
   // const cartObject={props.title,props}
@@ -17,6 +18,8 @@ export default function Item(props) {
           {/* {props.description.slice(0, 50)}... */}
           {/* <ItemOverlay desc={props.description} url={props.url} title={props.title}/> */}
           
+          <Rating rating={props.rating}/>
+        
           </Text>
           <Text color='blue.600' fontSize='2xl'>
             ${props.price}

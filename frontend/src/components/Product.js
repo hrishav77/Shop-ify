@@ -39,6 +39,7 @@ export default function Product(props) {
               price={item.price}
               description={item.description}
               url={item.image}
+              rating={item.rating}
             />
           ))}
       </Flex>
