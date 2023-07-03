@@ -10,9 +10,9 @@ export default function Cart() {
   }, [a.cartItem]);
 
   return (
-    <Flex>
-      <Box flex="0 0 20%">Content for the first column</Box>
-      <Box flex="0 0 80%" border="white 3px solid" bg="white" m="3" borderRadius="10">
+    <Flex justifyContent="center">
+      
+      <Box border="white 3px solid" bg="white" m="3" borderRadius="10" >
         
       {a.cartItem &&
           a.cartItem.map((item) => (

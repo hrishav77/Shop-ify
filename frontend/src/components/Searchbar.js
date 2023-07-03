@@ -23,7 +23,7 @@ const SearchForm = () => {
         <Input
           type="text"
           placeholder="Search"
-          w="5xl"
+          w="900px"
           ml="6rem"
           value={a.searchQuery}
           onChange={(e) => a.setSearchQuery(e.target.value)}
