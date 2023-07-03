@@ -9,6 +9,7 @@ import CartProvider from './components/context/Cartcontext';
 import ProductUnit from './pages/ProductUnit';
 import { CartContext } from './components/context/Cartcontext';
 import Checkout from './pages/Checkout';
+import Search from './pages/Search';
 
 const theme = extendTheme({
   styles: {
@@ -41,9 +42,7 @@ function App() {
       <Route path="/product" element={<Product category={catego}/>}/>
       <Route path="/singleproduct" element={<ProductUnit/>}/>
       <Route path="/checkout" element={<Checkout/>}/>
-
-
-
+      <Route path="/search" element={<Search/>}/>
     </Routes>
     </BrowserRouter>
     </div>

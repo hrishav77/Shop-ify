@@ -1,0 +1,41 @@
+import React, { useState, useEffect } from 'react';
+import Item from '../components/Item';
+import { Flex } from '@chakra-ui/react';
+
+export default function Search(props) {
+  const [items, setItems] = useState("");
+
+  const fetchProducts = async () => {
+      const data = await fetch("https://fakestoreapi.com/products");
+      const datajson = await data.json();
+    if (data.ok) {
+      setItems(datajson);
+    }
+    
+  
+    
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  return (
+    <div>
+      <Flex flexWrap="wrap"  justifyContent="center">
+        {items &&
+          items.map((item) => (
+            <Item
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              price={item.price}
+              description={item.description}
+              url={item.image}
+              rating={item.rating}
+            />
+          ))}
+      </Flex>
+    </div>
+  );
+}

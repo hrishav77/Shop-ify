@@ -2,7 +2,7 @@ import {React,useState,createContext} from "react";
 export const CartContext=createContext();
 
 const CartProvider=(props)=>{
-    const [product, setProduct] = useState({ url: "", id: "", title: "", description: "" ,price:""});//this is for the single product page
+    const [product, setProduct] = useState({ url: "", id: "", title: "", description: "" ,price:"",rating:""});//this is for the single product page
     const [cartCount, setCartCount] = useState(0);
     const [cartItem,setItem]=useState("")
     const [totalCost, setTotalCost] = useState(0);
@@ -18,8 +18,8 @@ const CartProvider=(props)=>{
     }
    
     
-    const clickHandler = ({url,title,desc,price,id}) => {
-      setProduct({url:url,description:desc,title:title,price:price,id:id})
+    const clickHandler = ({url,title,desc,price,id,rating}) => {
+      setProduct({url:url,description:desc,title:title,price:price,id:id,rating:rating})
         console.log("clicked")
     };
     const ChangeQuantity=async({id,adder})=>{

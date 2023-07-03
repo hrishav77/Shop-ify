@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { FormControl, Input, Button, IconButton } from '@chakra-ui/react';
+import { Link} from 'react-router-dom';
+import { FormControl, Input, IconButton } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons'
+
 const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
     // Perform search functionality with searchQuery
+    
     console.log('Search query:', searchQuery);
   };
 
@@ -26,7 +29,10 @@ const SearchForm = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           size="md"
         />
+        <Link to="/search">
         <IconButton ml={2} type="submit" colorScheme='teal' aria-label='Search database' icon={<SearchIcon />}/>
+        </Link>
+        
    
       </FormControl>
     </form>

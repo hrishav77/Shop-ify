@@ -11,7 +11,9 @@ export default function Item(props) {
   return (
     <Card m="2" borderRadius="5%" w="280px" h="500px" border="gold 2px solid" bg="white.200" boxShadow="lg">
       <CardBody m="5"> 
-        <Image src={props.url} borderRadius='lg' w="100%" h="250px" />
+      <Link to="/singleproduct" >
+        <Image src={props.url} borderRadius='lg' w="100%" h="250px"  onClick={() => a.clickHandler({url:props.url, title:props.title, price:props.price,desc:props.description,id:props.id,rating:props.rating})}/>
+        </Link>
         <Stack mt='3' spacing='3'>
           <Heading size='md'>{props.title.slice(0,20)}...</Heading>
           <Text>
@@ -33,7 +35,7 @@ export default function Item(props) {
           </Button>
           </Link>
           <Link to="/singleproduct" >
-          <Button colorScheme='teal' onClick={() => a.clickHandler({url:props.url, title:props.title, price:props.price,desc:props.description,id:props.id})}>Click to see</Button>
+          <Button colorScheme='teal' onClick={() => a.clickHandler({url:props.url, title:props.title, price:props.price,desc:props.description,id:props.id,rating:props.rating})}>Click to see</Button>
         </Link>
         </ButtonGroup>
       </CardBody>
