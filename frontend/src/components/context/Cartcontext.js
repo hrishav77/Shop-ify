@@ -6,6 +6,7 @@ const CartProvider=(props)=>{
     const [cartCount, setCartCount] = useState(0);
     const [cartItem,setItem]=useState("")
     const [totalCost, setTotalCost] = useState(0);
+     const [searchQuery, setSearchQuery] = useState('');
     
     const fetchcart=async()=>{
       
@@ -90,7 +91,7 @@ const CartProvider=(props)=>{
       }
     
     return (
-      <CartContext.Provider value={{ totalCost, setTotalCost,cartCount, setCartCount, product, setProduct, clickHandler,Addtocart,ChangeQuantity,fetchcart,cartItem,setItem}}>
+      <CartContext.Provider value={{searchQuery, setSearchQuery,totalCost, setTotalCost,cartCount, setCartCount, product, setProduct, clickHandler,Addtocart,ChangeQuantity,fetchcart,cartItem,setItem}}>
         {props.children}
       </CartContext.Provider>
     );

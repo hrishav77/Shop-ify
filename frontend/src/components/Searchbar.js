@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
-import { Link} from 'react-router-dom';
+import React, { useContext} from 'react';
 import { FormControl, Input, IconButton } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons'
+import { CartContext } from './context/Cartcontext';
+import { useNavigate } from 'react-router-dom';
 
 const SearchForm = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-
+  const a=useContext(CartContext)
+  const navigate = useNavigate();
   const handleSearch = () => {
     // Perform search functionality with searchQuery
-    
-    console.log('Search query:', searchQuery);
+    console.log('Search query:', a.searchQuery);
+    navigate('/search');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleSearch();
+    
   };
 
   return (
@@ -25,15 +27,11 @@ const SearchForm = () => {
           placeholder="Search"
           w="5xl"
           ml="6rem"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={a.searchQuery}
+          onChange={(e) => a.setSearchQuery(e.target.value)}
           size="md"
         />
-        <Link to="/search">
-        <IconButton ml={2} type="submit" colorScheme='teal' aria-label='Search database' icon={<SearchIcon />}/>
-        </Link>
-        
-   
+        <IconButton ml={2} type="submit" colorScheme='teal' aria-label='Search database' icon={<SearchIcon />}/>   
       </FormControl>
     </form>
   );
