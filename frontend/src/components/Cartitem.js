@@ -12,10 +12,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
    
     const jsondata=await data.json()
     if(data.ok){
-      // console.log("deleted")
-      // setdelete(false)
       a.setCartCount(a.cartCount-1)
-      // setquat(quantity)
     }
   }
   const quantityHandler=(quantity)=>{

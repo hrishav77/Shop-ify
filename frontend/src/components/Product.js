@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Item from './Item';
 import { Flex } from '@chakra-ui/react';
+import { CartContext } from './context/Cartcontext';
 
 export default function Product(props) {
   const [items, setItems] = useState("");
-
+  const a=useContext(CartContext)
   const fetchProducts = async () => {
     if(props.category==="all"){
       const data = await fetch("https://fakestoreapi.com/products");
@@ -25,11 +26,12 @@ export default function Product(props) {
 
   useEffect(() => {
     fetchProducts();
+    a.fetchcart()
   }, [props.category]);
 
   return (
     <div>
-      <Flex flexWrap="wrap">
+      <Flex flexWrap="wrap" justifyContent="center">
         {items &&
           items.map((item) => (
             <Item

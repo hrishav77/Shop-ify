@@ -15,13 +15,16 @@ export default function CategoryDrawer(props) {
       <>
         
         <Button size="sm" colorScheme='teal' onClick={onOpen}>
-          Categories v
+          Categories
         </Button>
         <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay backdropFilter='blur(4px)'/>
           <DrawerContent bg="antiquewhite">
             <DrawerHeader borderBottomWidth='2px' fontSize="2xl" color="blue.400" bg="antiquewhite">Categories</DrawerHeader>
             <DrawerBody bg="white">
+                <Link to="/product">
+                <Text fontSize="xl" m="3" data-value="all" onClick={props.buttonHandler}>All products</Text>
+                </Link>
                 <Link to="/product">
                 <Text fontSize="xl" m="3" data-value="men's clothing" onClick={props.buttonHandler}>Men's Clothing</Text>
                 </Link>
@@ -34,6 +37,7 @@ export default function CategoryDrawer(props) {
                 <Link to="/product">
                 <Text fontSize="xl" m="3" data-value="electronics" onClick={props.buttonHandler}>Electronics</Text>
                 </Link>
+                
             
             </DrawerBody>
           </DrawerContent>

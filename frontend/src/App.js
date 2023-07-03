@@ -3,11 +3,11 @@ import {BrowserRouter,Routes ,Route, Link} from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Navbar from './components/Navbar';
-import React, { useContext, useState } from 'react'
+import React, {  useState } from 'react'
 import Product from './components/Product';
 import CartProvider from './components/context/Cartcontext';
 import ProductUnit from './pages/ProductUnit';
-import { CartContext } from './components/context/Cartcontext';
+
 import Checkout from './pages/Checkout';
 import Search from './pages/Search';
 
@@ -22,7 +22,7 @@ const theme = extendTheme({
 });
 
 function App() {
-  const a=useContext(CartContext)
+
   const [catego,setcatego]=useState("")
   const buttonHandler=(e)=>{
     const customValue = e.target.getAttribute("data-value");
