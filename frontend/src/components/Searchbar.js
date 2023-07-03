@@ -9,14 +9,12 @@ const SearchForm = () => {
   const navigate = useNavigate();
   const handleSearch = () => {
     // Perform search functionality with searchQuery
-    console.log('Search query:', a.searchQuery);
-    navigate('/search');
+    navigate('/search')
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleSearch();
-    
   };
 
   return (
@@ -30,6 +28,7 @@ const SearchForm = () => {
           value={a.searchQuery}
           onChange={(e) => a.setSearchQuery(e.target.value)}
           size="md"
+      
         />
         <IconButton ml={2} type="submit" colorScheme='teal' aria-label='Search database' icon={<SearchIcon />}/>   
       </FormControl>
