@@ -7,6 +7,7 @@ import {
     DrawerContent,
   useDisclosure,Button,Text
   } from '@chakra-ui/react'
+import { ChevronDownIcon } from '@chakra-ui/icons'
 export default function CategoryDrawer(props) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     
@@ -15,7 +16,7 @@ export default function CategoryDrawer(props) {
       <>
         
         <Button size="sm" colorScheme='teal' onClick={onOpen}>
-          Categories
+          Categories<ChevronDownIcon/>
         </Button>
         <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay backdropFilter='blur(4px)'/>
