@@ -4,8 +4,15 @@ import { CartContext } from './context/Cartcontext';
 import { useContext, useEffect } from "react";
 import CategoryDrawer from "./Drawer";
 import SearchForm from "./Searchbar";
+import { useLogout } from './hooks/useLogout';
+
 const Navbar = (props) => {
   const a=useContext(CartContext)
+  const {logout}=useLogout()
+const logoutHandler=()=>{
+logout()
+}
+
   useEffect(()=>{
     a.setCartCount(a.cartItem.length)
   },[a.cartItem.length])
@@ -44,6 +51,8 @@ const Navbar = (props) => {
         <Link to="login">
         <Button colorScheme="teal" size="sm" m="2">Login</Button>
         </Link>
+        <Button colorScheme="teal" size="sm" m="2" onClick={logoutHandler}>Logout</Button>
+
     </Flex>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Button, FormControl, FormLabel, Heading, Input, Stack,Text} from '@chakra-ui/react';
+import { Box, Button, FormControl, FormLabel, Heading, Input, Stack,Center} from '@chakra-ui/react';
 import { useSignup } from '../components/hooks/useSignup';
-// import BeatLoader from "react-spinners/BeatLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const SignupForm = () => {
   const [email, setEmail] = useState('');
@@ -53,7 +53,7 @@ const SignupForm = () => {
           
         </Stack>
       </form>
-      {/* {isLoading && <Center><BeatLoader color="#36d7b7" size={15} margin="5px" aria-label='loading'cssOverride={{margin: "5px",colour:"teal"}}/></Center>} */}
+      {isLoading && <Center><BeatLoader color="#36d7b7" size={15} margin="5px" aria-label='loading'cssOverride={{margin: "5px",colour:"teal"}}/></Center>}
     </Box>
   );
 };

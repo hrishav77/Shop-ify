@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect} from 'react';
 import { CartContext } from '../components/context/Cartcontext';
 import CheckoutItem from '../components/CheckoutItem';
 import { Box, Button, Flex, Spacer, Text } from '@chakra-ui/react';

@@ -24,7 +24,7 @@ const SearchForm = () => {
           type="text"
           placeholder="Search"
           w="900px"
-          ml="6rem"
+          ml="3"
           value={a.searchQuery}
           onChange={(e) => a.setSearchQuery(e.target.value)}
           size="md"
