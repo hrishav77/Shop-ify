@@ -14,7 +14,15 @@ const userSchema=new mongoose.Schema({
 })
 userSchema.statics.signup=async function(email,password){ //this cant be a arrow function
 
-
+ if(!email||!password){
+        throw Error("all fields must be filled")
+     }   
+    if(!validator.isEmail(email)){
+        throw Error("email is not valid")
+    }
+    if(!validator.isStrongPassword(password)){
+        throw Error("Use a special character,uppercase,lowercase character")
+    }
 const exist= await this.findOne({email})//here this means the model
 if(exist){
     throw Error("email already in use")

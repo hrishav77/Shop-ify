@@ -15,7 +15,6 @@ const signupUser=async(req,res)=>{
         res.status(400).json({error:error.message})
     }
 
-   
     }
 
 module.exports={loginUser,signupUser};
