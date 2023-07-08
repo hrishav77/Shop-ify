@@ -1,4 +1,4 @@
-import { Box, Flex, Input, Button,Badge,Text, HStack } from "@chakra-ui/react";
+import { Box, Flex, Button,Badge} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { CartContext } from './context/Cartcontext';
 import { useContext, useEffect } from "react";
@@ -38,7 +38,7 @@ const Navbar = (props) => {
         </Button>
       </Link>
 
-        <Link to="/sigup">
+        <Link to="/signup">
           <Button colorScheme="teal" size="sm" m="2">Signup</Button>
         </Link>
         <Link to="login">

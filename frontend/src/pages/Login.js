@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, FormControl, FormLabel, Heading, Input, Stack ,Center} from '@chakra-ui/react';
+import { Box, Button, FormControl, FormLabel, Heading, Input, Stack} from '@chakra-ui/react';
 // import { useSignup } from '../hooks/useSignup';
 // import BeatLoader from "react-spinners/BeatLoader";
 

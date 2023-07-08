@@ -16,13 +16,13 @@ export default function Item(props) {
         </Link>
         <Stack mt='3' spacing='3'>
           <Heading size='md'>{props.title.slice(0,20)}...</Heading>
-          <Text>
+          {/* <Text> */}
           {/* {props.description.slice(0, 50)}... */}
           {/* <ItemOverlay desc={props.description} url={props.url} title={props.title}/> */}
           
           <Rating rating={props.rating}/>
         
-          </Text>
+          {/* </Text> */}
           <Text color='blue.600' fontSize='2xl'>
             ${props.price}
           </Text>
