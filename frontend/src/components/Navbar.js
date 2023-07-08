@@ -1,4 +1,4 @@
-import { Box, Flex, Input, Button,Badge,Text } from "@chakra-ui/react";
+import { Box, Flex, Input, Button,Badge,Text, HStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { CartContext } from './context/Cartcontext';
 import { useContext, useEffect } from "react";
@@ -29,15 +29,21 @@ const Navbar = (props) => {
         
       </Flex>
       <CategoryDrawer buttonHandler={props.buttonHandler}/>
-      
       <Link to="/cart">
-      <Button colorScheme="teal" size="sm">
+      <Button colorScheme="teal" size="sm" m="2">
       <Badge colorScheme="purple" variant="solid" borderRadius="50%" px={2}>
         {a.cartCount}
       </Badge>
           Cart
         </Button>
       </Link>
+
+        <Link to="/sigup">
+          <Button colorScheme="teal" size="sm" m="2">Signup</Button>
+        </Link>
+        <Link to="login">
+        <Button colorScheme="teal" size="sm" m="2">Login</Button>
+        </Link>
     </Flex>
   );
 };

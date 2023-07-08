@@ -1,15 +1,17 @@
 import { ChakraProvider,extendTheme } from '@chakra-ui/react'
-import {BrowserRouter,Routes ,Route, Link} from "react-router-dom";
+import {BrowserRouter,Routes ,Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Navbar from './components/Navbar';
 import React, {  useState } from 'react'
 import Product from './components/Product';
-import CartProvider from './components/context/Cartcontext';
 import ProductUnit from './pages/ProductUnit';
 
 import Checkout from './pages/Checkout';
 import Search from './pages/Search';
+
+import SignupForm from './pages/Signup';
+import LoginForm from './pages/Login';
 
 const theme = extendTheme({
   styles: {
@@ -31,7 +33,7 @@ function App() {
   }
 
   return (
-    <CartProvider>
+ 
     <ChakraProvider theme={theme}>
     <div className="routes">
     <BrowserRouter>
@@ -43,12 +45,15 @@ function App() {
       <Route path="/singleproduct" element={<ProductUnit/>}/>
       <Route path="/checkout" element={<Checkout/>}/>
       <Route path="/search" element={<Search/>}/>
+      <Route path="/signup" element={<SignupForm/>}/>
+      <Route path="/login" element={<LoginForm />}/>
+
+
     </Routes>
     </BrowserRouter>
     </div>
     </ChakraProvider>
-    </CartProvider>
-
+ 
   );
 }
 
