@@ -12,6 +12,7 @@ import Search from './pages/Search';
 
 import SignupForm from './pages/Signup';
 import LoginForm from './pages/Login';
+import { useAuthContext } from './components/hooks/useAuthContext';
 
 const theme = extendTheme({
   styles: {
@@ -24,7 +25,7 @@ const theme = extendTheme({
 });
 
 function App() {
-
+  const {user}=useAuthContext()
   const [catego,setcatego]=useState("")
   const buttonHandler=(e)=>{
     const customValue = e.target.getAttribute("data-value");
@@ -39,14 +40,14 @@ function App() {
     <BrowserRouter>
     <Navbar buttonHandler={buttonHandler}/>
     <Routes>
-      <Route path="/" element={<Home  buttonHandler={buttonHandler}/>}/>
-      <Route path="/cart" element={<Cart/>}/>
-      <Route path="/product" element={<Product category={catego}/>}/>
-      <Route path="/singleproduct" element={<ProductUnit/>}/>
-      <Route path="/checkout" element={<Checkout/>}/>
-      <Route path="/search" element={<Search/>}/>
-      <Route path="/signup" element={<SignupForm/>}/>
-      <Route path="/login" element={<LoginForm />}/>
+      <Route path="/" element={user?<Home buttonHandler={buttonHandler}/>:<SignupForm/>}/>
+      <Route path="/cart" element={user?<Cart/>:<SignupForm/>}/>
+      <Route path="/product" element={user?<Product category={catego}/>:<SignupForm/>}/>
+      <Route path="/singleproduct" element={user?<ProductUnit/>:<SignupForm/>}/>
+      <Route path="/checkout" element={user?<Checkout/>:<SignupForm/>}/>
+      <Route path="/search" element={user?<Search/>:<SignupForm/>}/>
+      <Route path="/signup" element={user?<Home buttonHandler={buttonHandler}/>:<SignupForm/>}/>
+      <Route path="/login" element={user?<Home buttonHandler={buttonHandler}/>:<LoginForm />}/>
 
 
     </Routes>
