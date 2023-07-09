@@ -16,7 +16,7 @@ const productSchema=new mongoose.Schema({
         type:Number,
         required:true
     },
-    user_id:{
+    prod_id:{
         type:String,
         required:true
     }

@@ -27,11 +27,11 @@ const CartProvider=(props)=>{
       console.log(id)
       const existingItemResponse = await fetch(`http://localhost:4000/cart/${id}`);
       const existingItem = await existingItemResponse.json();
-      console.log(existingItem.user_id)
+      console.log(existingItem.prod_id)
       if (existingItem.length > 0) 
         console.log("adder")
         // Item already exists, increase the quantity by 1
-        const existingItemId = existingItem.user_id;
+        const existingItemId = existingItem.prod_id;
         const updatedQuantity = existingItem.quantity+adder;
         
         // Update the quantity of the existing item in the cart
@@ -56,7 +56,7 @@ const CartProvider=(props)=>{
       
       if (existingItem.length > 0) {
         // Item already exists, increase the quantity by 1
-        const existingItemId = existingItem[0].user_id;
+        const existingItemId = existingItem[0].prod_id;
         const updatedQuantity = existingItem[0].quantity + 1;
         
         // Update the quantity of the existing item in the cart
@@ -74,7 +74,7 @@ const CartProvider=(props)=>{
         }
       } 
       else{
-        const data = { title:title,quantity:quantity, image:url, cost:price,user_id:id };
+        const data = { title:title,quantity:quantity, image:url, cost:price,prod_id:id };
         console.log(data)
         const response=await fetch("http://localhost:4000/cart",{
           method:"post",

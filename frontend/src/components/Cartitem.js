@@ -17,11 +17,11 @@ export default function Cartitem({title,url,price,quantity,id}) {
   }
   const quantityHandler=(quantity)=>{
     a.ChangeQuantity({id: id, adder: -1});
-    if(quantity<=0){
+    if(quantity-1<=0){
       removeCart()
     }
     else{
-      setquat(quantity)
+      setquat(quant-1)
     }
   }
   return (
@@ -38,7 +38,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
       <Flex flex="1" justify="flex-start" align="inherit">
            <Text  p="3" borderRadius="md" m="3" fontSize="xl">${price}</Text>
            <Flex justifyContent="center" alignItems="center">
-  <Button size="xs" onClick={() => { quantityHandler(quantity-1) }}>-</Button>
+  <Button size="xs" onClick={() => { quantityHandler(quant) }}>-</Button>
   <Text backgroundColor="blackAlpha.300" p="3" borderRadius="md" m="3"> Qty:{quant}</Text> 
   <Button size="xs" onClick={() => { a.ChangeQuantity({id: id, adder: 1}); setquat(quant + 1); }}>+</Button>
 
