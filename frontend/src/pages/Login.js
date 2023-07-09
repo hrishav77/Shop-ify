@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Box, Button, FormControl, FormLabel, Heading, Input, Stack} from '@chakra-ui/react';
-// import { useSignup } from '../hooks/useSignup';
-// import BeatLoader from "react-spinners/BeatLoader";
+import { Box, Button, FormControl, FormLabel, Heading, Input, Stack,Center} from '@chakra-ui/react';
+import { useLogin } from '../components/hooks/useLogin';
+import BeatLoader from "react-spinners/BeatLoader";
 
 const LoginForm = () => {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-//   const { signup, isLoading, error }=useSignup()//use signup returns theses states and also dispatch the login action
+   const {login,error,isLoading}=useLogin()
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -18,7 +19,7 @@ const LoginForm = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
- 
+    await login(email,password)
     // await signup(email,password)
     
   };
@@ -48,11 +49,11 @@ const LoginForm = () => {
             <FormLabel fontWeight="bold">Password:</FormLabel>
             <Input type="password" value={password} onChange={handlePasswordChange} />
           </FormControl>
-          <Button type="submit" colorScheme="teal"  fontWeight="bold">Log in</Button>
-          {/* {error && <div className='error'>{error}</div>} */}
+          <Button type="submit" colorScheme="teal" disabled={isLoading} fontWeight="bold">Log in</Button>
+          {error && <Box bg="red.100" color="red" borderRadius="3" p="1" border="red solid 1px" fontSize="sm">{error}</Box>}
         </Stack>
       </form>
-      {/* {isLoading && <Center><BeatLoader color="#36d7b7" size={15} margin="5px" aria-label='loading'cssOverride={{margin: "5px",colour:"teal"}}/></Center>} */}
+      {isLoading && <Center><BeatLoader color="#36d7b7" size={15} margin="5px" aria-label='loading'cssOverride={{margin: "5px",colour:"teal"}}/></Center>}
     </Box>
   );
 };

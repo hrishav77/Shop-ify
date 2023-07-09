@@ -49,7 +49,7 @@ const SignupForm = () => {
             <Input type="password" value={password} onChange={handlePasswordChange} />
           </FormControl>
           <Button type="submit" colorScheme="teal"  fontWeight="bold">Sign Up</Button>
-          {error && <Box color="red">{error}</Box>}
+          {error && <Box bg="red.100" color="red" borderRadius="3" p="1" border="red solid 1px" fontSize="sm">{error}</Box>}
           
         </Stack>
       </form>
