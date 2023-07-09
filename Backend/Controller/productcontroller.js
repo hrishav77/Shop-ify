@@ -3,8 +3,8 @@ const mongoose=require('mongoose')
 
 //get from cart
 const getProducts=async(req,res)=>{
-
-     const product=await Product.find({})
+     const user_id=req.user._id
+     const product=await Product.find({user_id:user_id})
      if(!product){
          return res.status(404).json({error:"product does not exist"})
      }
@@ -49,8 +49,8 @@ const postProduct=async(req,res)=>{
     const {title,quantity,image,prod_id,cost}=req.body
     //add the goal to database
     try{
-    // const prod_id=req.user._id
-    const product=await Product.create({title,quantity,image,prod_id,cost}) 
+    const user_id=req.user._id
+    const product=await Product.create({title,quantity,image,prod_id,cost,user_id}) 
     res.status(200).json(product)
     }catch(error){
         res.status(400).json({error:error.message})
