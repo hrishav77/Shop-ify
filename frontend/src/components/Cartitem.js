@@ -1,13 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { Flex,Text,Box,Image, Button, Input, Spacer } from '@chakra-ui/react'
 import { CartContext } from './context/Cartcontext'
+import { useAuthContext } from './hooks/useAuthContext'
 export default function Cartitem({title,url,price,quantity,id}) {
   const a=useContext(CartContext)
+  const {user}=useAuthContext()
   // const [deleted,setdelete]=useState(true)
   const [quant,setquat]=useState(quantity)
   const removeCart=async()=>{
     const data=await fetch("http://localhost:4000/cart/"+id,{
       method:'DELETE',
+      headers:{
+        'Authorization':`Bearer ${user.token}`
+      }
     })
    
     const jsondata=await data.json()

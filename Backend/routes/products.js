@@ -1,7 +1,9 @@
 const express=require('express')
 const router=express.Router()
 const a=require("../Controller/productcontroller")
+const requireAuth = require('../middlewares/requireAuth')
 
+router.use(requireAuth)
 router.get("/",a.getProducts)
 //add to cart
 router.get("/:id",a.getProductsbyid)

@@ -7,7 +7,7 @@ const LoginForm = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-   const {login,error,isLoading}=useLogin()
+  const {login,error,isLoading}=useLogin()
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);

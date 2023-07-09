@@ -3,11 +3,15 @@ import Cartitem from '../components/Cartitem'
 import { Flex, Box, Button, Spacer } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { CartContext } from '../components/context/Cartcontext';
+import { useAuthContext } from '../components/hooks/useAuthContext';
 export default function Cart() {
   const a=useContext(CartContext)
+  const {user}=useAuthContext()
   useEffect(() => {
-    a.fetchcart();
-  }, [a.cartItem]);
+    if(user){
+      a.fetchcart();
+    }
+  }, [a.cartItem,user]);
 
   return (
     <Flex justifyContent="center">

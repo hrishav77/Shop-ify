@@ -2,10 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import Item from './Item';
 import { Flex } from '@chakra-ui/react';
 import { CartContext } from './context/Cartcontext';
+import { useAuthContext } from './hooks/useAuthContext';
 
 export default function Product(props) {
   const [items, setItems] = useState("");
   const a=useContext(CartContext)
+
   const fetchProducts = async () => {
     if(props.category==="all"){
       const data = await fetch("https://fakestoreapi.com/products");
