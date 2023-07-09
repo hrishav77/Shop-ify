@@ -5,9 +5,10 @@ import { useContext, useEffect } from "react";
 import CategoryDrawer from "./Drawer";
 import SearchForm from "./Searchbar";
 import { useLogout } from './hooks/useLogout';
-
+import { useAuthContext } from "./hooks/useAuthContext";
 const Navbar = (props) => {
   const a=useContext(CartContext)
+  const {user}=useAuthContext()
   const {logout}=useLogout()
 const logoutHandler=()=>{
 logout()
@@ -44,13 +45,14 @@ logout()
           Cart
         </Button>
       </Link>
-
-        <Link to="/signup">
+        {user && <span>{user.email}</span>}
+        {!user && <> <Link to="/signup">
           <Button colorScheme="teal" size="sm" m="2">Signup</Button>
         </Link>
         <Link to="login">
         <Button colorScheme="teal" size="sm" m="2">Login</Button>
         </Link>
+        </>}
         <Button colorScheme="teal" size="sm" m="2" onClick={logoutHandler}>Logout</Button>
 
     </Flex>
