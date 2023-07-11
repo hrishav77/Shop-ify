@@ -59,7 +59,7 @@ const CartProvider=(props)=>{
   }
     const Addtocart=async({title,url,price,id,quantity})=>{
       
-      const existingItemResponse = await fetch(`http://localhost:4000/cart/productid/${id}`,{
+      const existingItemResponse = await fetch(`https://shop-ify.onrender.com/cart/productid/${id}`,{
         headers:{
           'Authorization':`Bearer ${user.token}`
         }});
@@ -71,7 +71,7 @@ const CartProvider=(props)=>{
         const updatedQuantity = existingItem[0].quantity + 1;
         
         // Update the quantity of the existing item in the cart
-        const updateResponse = await fetch(`http://localhost:4000/cart/${existingItemId}`, {
+        const updateResponse = await fetch(`https://shop-ify.onrender.com/cart/${existingItemId}`, {
           method: "put",
           body: JSON.stringify({quantity:updatedQuantity }),
           headers: {
@@ -88,7 +88,7 @@ const CartProvider=(props)=>{
       else{
         const data = { title:title,quantity:quantity, image:url, cost:price,prod_id:id };
         // console.log(data)
-        const response=await fetch("http://localhost:4000/cart",{
+        const response=await fetch("https://shop-ify.onrender.com/cart",{
           method:"post",
           body:JSON.stringify(data),
           headers:{

@@ -76,7 +76,7 @@ logout()
         </Button>
         </Link>
         <Button colorScheme="yellow" size="sm" m="2"  color="maroon" onClick={logoutHandler}>Logout</Button>
-        <span>{user.email}</span>
+        <Text color="white">{user.email}</Text>
           </NavHamburg></>}
         </Flex>
     </Flex>
