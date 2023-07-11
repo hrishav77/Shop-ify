@@ -6,6 +6,8 @@ Some screenshots of my webpage:
 ![starting page](ss/4.png)
 ### Search function
 ![starting page](ss/2.png)
+### Product page
+![starting page](ss/5.png)
 ### Cart
 ![starting page](ss/1.png)
 ### payment
