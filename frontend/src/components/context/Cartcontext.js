@@ -98,7 +98,6 @@ const CartProvider=(props)=>{
       })
               const json=await response.json()
               setCartCount(cartCount+1)
-              
               if(!response.ok){console.log(json.error)}
     }
       }

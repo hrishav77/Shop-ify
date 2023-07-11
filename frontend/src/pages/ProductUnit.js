@@ -1,5 +1,5 @@
 import { Image,Box,Flex,Text,Button, Spacer,useMediaQuery} from '@chakra-ui/react'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from '../components/context/Cartcontext'
 import Rating from '../components/Rating'
 export default function ProductUnit() {
@@ -8,6 +8,7 @@ export default function ProductUnit() {
       "(max-width: 900px)",
       "(display-mode: browser)",
     ])
+    const[added,setadd]=useState(false)
   return (
     <Flex>
     <Box flex="0 0 40%">
@@ -24,8 +25,8 @@ export default function ProductUnit() {
       <Box h="1px" bg="gray.400" my={4} />
       <Text fontSize={isSmallScreen?"sm":"2xl"} m={isSmallScreen?"1":"5"} color="white">{a.product.description}</Text>
       <Flex alignItems="center">
-      <Button variant='solid' size={isSmallScreen?"sm":"md"} colorScheme="green" m={isSmallScreen?"1":"5"} onClick={()=>a.Addtocart({title:a.product.title,url:a.product.url,quantity:1,price:a.product.price,id:a.product.id})} >
-            Add to cart
+      <Button variant='solid' size={isSmallScreen?"sm":"md"} colorScheme={added?"teal":"green"} m={isSmallScreen?"1":"5"} onClick={()=>{a.Addtocart({title:a.product.title,url:a.product.url,quantity:1,price:a.product.price,id:a.product.id});setadd(true)}} >
+           {!added  && <span>Add to cart</span>}{added  && <span>Added</span>}
       </Button>
       <Text fontSize={isSmallScreen?"sm":"4xl"} w="-webkit-fit-content" color="green.400" mr="10">${a.product.price}</Text>
       </Flex>

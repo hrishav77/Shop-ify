@@ -5,7 +5,7 @@ import Starting from './Starting'
 export default function Home({buttonHandler}) {
   
   return (
-    <div>
+    <div styles={"background-color: #ff0000"}>
      <Starting clicked={buttonHandler} />
     <Flex mt="10">
     <Product category={"all"}/>
