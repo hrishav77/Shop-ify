@@ -10,7 +10,7 @@ const CartProvider=(props)=>{
      const [searchQuery, setSearchQuery] = useState('');
     const {user}=useAuthContext()
     const fetchcart=async()=>{
-      const data=await fetch("http://localhost:4000/cart",{
+      const data=await fetch("https://shop-ify.onrender.com/cart",{
         headers:{
           'Authorization':`Bearer ${user.token}`
         }
@@ -29,7 +29,7 @@ const CartProvider=(props)=>{
     };
     const ChangeQuantity=async({id,adder})=>{
       // console.log(id)
-      const existingItemResponse = await fetch(`http://localhost:4000/cart/${id}`,{
+      const existingItemResponse = await fetch(`https://shop-ify.onrender.com/cart/${id}`,{
         headers:{
           'Authorization':`Bearer ${user.token}`
         }});
@@ -42,7 +42,7 @@ const CartProvider=(props)=>{
         const updatedQuantity = existingItem.quantity+adder;
         
         // Update the quantity of the existing item in the cart
-        const updateResponse = await fetch(`http://localhost:4000/cart/${existingItemId}`, {
+        const updateResponse = await fetch(`https://shop-ify.onrender.com/cart/${existingItemId}`, {
           method: "put",
           body: JSON.stringify({quantity:updatedQuantity }),
           headers: {

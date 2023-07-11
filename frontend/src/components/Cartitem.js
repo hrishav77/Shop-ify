@@ -12,7 +12,7 @@ export default function Cartitem({title,url,price,quantity,id}) {
   // const [deleted,setdelete]=useState(true)
   const [quant,setquat]=useState(quantity)
   const removeCart=async()=>{
-    const data=await fetch("http://localhost:4000/cart/"+id,{
+    const data=await fetch("https://shop-ify.onrender.com/cart/"+id,{
       method:'DELETE',
       headers:{
         'Authorization':`Bearer ${user.token}`
