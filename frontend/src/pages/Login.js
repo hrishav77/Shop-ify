@@ -30,11 +30,13 @@ const LoginForm = () => {
     p={4}
     bg="gray.100"
     borderRadius="md"
-    border="1px black solid"
-    boxShadow="md"
+    border="2px gold solid"
+    boxShadow="lg"
     margin="0 auto"
     mt={20}
-    backgroundColor="#F5F5FA"
+    backgroundColor= "yellow.100"
+   
+
     >
       <Heading as="h2" size="md" textAlign="center" mb={4} color="blackAlpha.800">
         Login

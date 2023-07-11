@@ -34,7 +34,7 @@ logout()
     >
     
 
-      <Box fontSize={isSmallScreen?"xl":"3xl"}>
+      <Box fontSize={isSmallScreen?"xl":user?"4xl":"6xl"}>
       <Link to="/">
        Shopify
        </Link>

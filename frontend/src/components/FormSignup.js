@@ -36,11 +36,11 @@ const FormSignup = () => {
     p={4}
     bg="gray.100"
     borderRadius="md"
-    boxShadow="md"
+    boxShadow="lg"
     ml={isSmallScreen?"8":"20"}
     mt={isSmallScreen?"4":"25"}
-    backgroundColor="#F5F5FA"
-    border="2px solid gray"
+    backgroundColor="lightyellow"
+    border="2px solid gold"
     >
         
       <Heading as="h2" size="md" textAlign="center" mb={4} color="blackAlpha.800">

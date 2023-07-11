@@ -27,7 +27,7 @@ const SearchForm = () => {
         <Input
           type="text"
           placeholder="Search"
-          w={isSmallScreen ? "80%" : "900px"}
+          w={isSmallScreen ? "80%" : "800px"}
           ml="3"
           value={a.searchQuery}
           onChange={(e) => a.setSearchQuery(e.target.value)}
