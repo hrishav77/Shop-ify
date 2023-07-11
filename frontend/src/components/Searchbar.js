@@ -34,7 +34,7 @@ const SearchForm = () => {
           size="md"
           border="1px solid black"
         />
-        <IconButton m="3" type="submit" colorScheme='yellow' aria-label='Search database' icon={<SearchIcon />}/>   
+        <IconButton m="3" type="submit" colorScheme="blackAlpha" aria-label='Search database' icon={<SearchIcon />}/>   
       </FormControl>
     </form>
   );
