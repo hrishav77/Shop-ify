@@ -32,7 +32,7 @@ export default function Checkout() {
   };
  
   return (
-    <Flex justify="center">
+    <Flex justify="center" style={{ background:"white", color: 'black' }}>
       <Box border="white 3px solid" bg="white" m="3" borderRadius="10" w={isSmallScreen?"80%":"60%"}>
       {a.cartItem &&
         a.cartItem.map((item) => (

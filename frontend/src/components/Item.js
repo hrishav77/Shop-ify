@@ -12,7 +12,7 @@ export default function Item(props) {
   ])
 
   return (
-    <Card m="2" borderRadius="5%" w={isSmallScreen?"95px":"280px"} h={isSmallScreen?"220px":"500px"} border="gold 2px solid" bg="white.200" boxShadow="lg">
+    <Card m="2" borderRadius="5%" w={isSmallScreen?"95px":"280px"} h={isSmallScreen?"220px":"500px"} border="#E1E1E5 2px solid" bg="white.200" boxShadow="lg">
       <CardBody m={isSmallScreen?"":"5"}> 
       <Link to="/singleproduct" >
         <Image src={props.url} borderRadius='lg' w="100%" h={isSmallScreen?"75px":"250px"}  onClick={() => a.clickHandler({url:props.url, title:props.title, price:props.price,desc:props.description,id:props.id,rating:props.rating})}/>

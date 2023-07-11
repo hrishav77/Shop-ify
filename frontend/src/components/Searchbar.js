@@ -32,6 +32,7 @@ const SearchForm = () => {
           value={a.searchQuery}
           onChange={(e) => a.setSearchQuery(e.target.value)}
           size="md"
+          border="1px solid black"
         />
         <IconButton m="3" type="submit" colorScheme='yellow' aria-label='Search database' icon={<SearchIcon />}/>   
       </FormControl>

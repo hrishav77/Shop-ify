@@ -29,7 +29,8 @@ logout()
       align="center"
       justify="space-between"
       padding="1rem"
-      color="white"
+    
+      style={user?{ background: "white" }:{color:"goldenrod"}}
     >
     
 
@@ -44,39 +45,39 @@ logout()
       {user && !isSmallScreen && <>
       <CategoryDrawer buttonHandler={props.buttonHandler}/>
       <Link to="/cart">
-      <Button colorScheme="yellow" size="sm" m="2">
-      <Badge colorScheme="blackAlpha" variant="solid" borderRadius="50%" px={2}>
+      <Button colorScheme="blackAlpha"  variant="outline" color="black"  size="sm" m="2">
+      <Badge colorScheme="blackAlpha" variant="outline"   borderRadius="50%" px={2}>
         {a.cartCount}
       </Badge>
           Cart
       </Button>
       </Link></>}
         
-        {user && !isSmallScreen && <Text backgroundColor="whiteAlpha.400" p="1" borderRadius="10" color="#ffdb00">{user.email}</Text>}
+        {user && !isSmallScreen && <Text backgroundColor="whiteAlpha.400" p="1" borderRadius="10" color="black">{user.email}</Text>}
         <Flex><Spacer/>
         {!user && <> <Link to="/signup">
-          <Button colorScheme="yellow" size="sm" m="2" color="maroon">Signup</Button>
+          <Button colorScheme="yellow"   size="sm" m="2" color="maroon">Signup</Button>
         </Link>
         <Link to="login">
-        <Button colorScheme="yellow" size="sm" m="2" color="maroon" >Login</Button>
+        <Button colorScheme="yellow"   size="sm" m="2" color="maroon" >Login</Button>
         </Link>
         </>}
         {
-          !isSmallScreen && <Button colorScheme="yellow" size="sm" m="2"  color="maroon" onClick={logoutHandler}>Logout</Button>
+          !isSmallScreen && user && <Button colorScheme="blackAlpha" color="black" variant="outline"  size="sm" m="2"   onClick={logoutHandler}>Logout</Button>
         }
         {isSmallScreen&& user && <><NavHamburg>
           
         <CategoryDrawer buttonHandler={props.buttonHandler}/>
         <Link to="/cart">
-        <Button colorScheme="yellow" size="sm" m="2">
-        <Badge colorScheme="blackAlpha" variant="solid" borderRadius="50%" px={2}>
+        <Button colorScheme="blackAlpha" color="black" variant="outline"  size="sm" m="2">
+        <Badge colorScheme="yellow" variant="solid" borderRadius="50%" px={2}>
           {a.cartCount}
         </Badge>
             Cart
         </Button>
         </Link>
-        <Button colorScheme="yellow" size="sm" m="2"  color="maroon" onClick={logoutHandler}>Logout</Button>
-        <Text color="white">{user.email}</Text>
+        <Button colorScheme="blackAlpha" color="black" variant="outline"  size="sm" m="2"  onClick={logoutHandler}>Logout</Button>
+        <Text >{user.email}</Text>
           </NavHamburg></>}
         </Flex>
     </Flex>

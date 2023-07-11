@@ -18,7 +18,7 @@ export default function Cart() {
   }, [a.cartItem,user]);
 
   return (
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" style={{ background:"white", color: 'black' }}>
       <Box border="white 3px solid" bg="white" m={isSmallScreen?"":"3"} borderRadius="10" w={isSmallScreen?"80%":"50%"} >
         
       {a.cartItem &&

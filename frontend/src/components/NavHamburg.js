@@ -26,7 +26,7 @@ import {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent  size='full' backgroundImage="https://st2.depositphotos.com/1760420/5432/i/450/depositphotos_54324565-stock-photo-online-shopping-and-e-commerce.jpg">
+          <DrawerContent>
         
             <DrawerCloseButton />
         

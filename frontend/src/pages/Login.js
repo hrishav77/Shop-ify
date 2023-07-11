@@ -34,7 +34,7 @@ const LoginForm = () => {
     boxShadow="md"
     margin="0 auto"
     mt={20}
-    backgroundColor="rgba(255, 255, 255, 0.4)"
+    backgroundColor="#F5F5FA"
     >
       <Heading as="h2" size="md" textAlign="center" mb={4} color="blackAlpha.800">
         Login
@@ -49,7 +49,7 @@ const LoginForm = () => {
             <FormLabel fontWeight="bold">Password:</FormLabel>
             <Input type="password" value={password} onChange={handlePasswordChange} />
           </FormControl>
-          <Button type="submit" colorScheme="blackAlpha" disabled={isLoading} fontWeight="bold">Log in</Button>
+          <Button type="submit" colorScheme="yellow" variant="outline" disabled={isLoading} fontWeight="bold">Log in</Button>
           {error && <Box bg="red.100" color="red" borderRadius="3" p="1" border="red solid 1px" fontSize="sm">{error}</Box>}
         </Stack>
       </form>

@@ -10,20 +10,20 @@ export default function ProductUnit() {
     ])
     const[added,setadd]=useState(false)
   return (
-    <Flex>
+    <Flex style={{ background:"white", color: 'black' }}>
     <Box flex="0 0 40%">
         <Box m={isSmallScreen?"2":"10"}>
         <Image src={a.product.url}  borderRadius="5%" m={isSmallScreen?"1":"5"} />
         </Box>
     </Box>
     <Box flex="0 0 60%">
-      <Text w="-webkit-fit-content" borderRadius="10" fontSize={isSmallScreen?"lg":"5xl"} m={isSmallScreen?"1":"5"} mb="1" color="white" >{a.product.title}</Text>
+      <Text w="-webkit-fit-content" borderRadius="10" fontSize={isSmallScreen?"lg":"5xl"} m={isSmallScreen?"1":"5"} mb="1"  >{a.product.title}</Text>
       <Flex direction="row">
-      <Text fontSize="xl" ml="5" color="white">{a.product.rating.rate}</Text>
+      <Text fontSize={isSmallScreen?"2xs":"xl"} ml="5" >{a.product.rating.rate}</Text>
       <Rating rating={a.product.rating}/>
       </Flex>
       <Box h="1px" bg="gray.400" my={4} />
-      <Text fontSize={isSmallScreen?"sm":"2xl"} m={isSmallScreen?"1":"5"} color="white">{a.product.description}</Text>
+      <Text fontSize={isSmallScreen?"sm":"2xl"} m={isSmallScreen?"1":"5"} >{a.product.description}</Text>
       <Flex alignItems="center">
       <Button variant='solid' size={isSmallScreen?"sm":"md"} colorScheme={added?"teal":"green"} m={isSmallScreen?"1":"5"} onClick={()=>{a.Addtocart({title:a.product.title,url:a.product.url,quantity:1,price:a.product.price,id:a.product.id});setadd(true)}} >
            {!added  && <span>Add to cart</span>}{added  && <span>Added</span>}
