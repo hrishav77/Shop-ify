@@ -33,7 +33,7 @@ export default function Product(props) {
 
   return (
     <div>
-      <Flex flexWrap="wrap" justifyContent="center">
+      <Flex flexWrap="wrap" justifyContent="center" >
         {items &&
           items.map((item) => (
             <Item

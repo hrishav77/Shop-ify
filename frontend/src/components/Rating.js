@@ -1,15 +1,19 @@
 import { Tooltip} from "@chakra-ui/react";
-import { Box } from "@chakra-ui/react";
+import { Box,useMediaQuery } from "@chakra-ui/react";
 import { StarIcon} from '@chakra-ui/icons'
 
 
 export default function Rating(props) {
+  const [isSmallScreen, isDisplayingInBrowser] = useMediaQuery([
+    "(max-width: 900px)",
+    "(display-mode: browser)",
+  ])
   return (
 
     <Tooltip hasArrow label={props.rating.rate} openDelay="100">
-    <Box display="flex" flexDirection="row" alignItems="center">
+    <Box display="flex" flexDirection="row" alignItems="center" color="goldenrod" fontSize={isSmallScreen?"xs":"lg"}>
           {Array.from({ length: Math.round(props.rating.rate) }, (_, index) => (//Array.from(iterable, mapFunction);
-            <StarIcon key={index} color="goldenrod" boxSize="20px" />
+            <StarIcon key={index} color="goldenrod" boxSize={isSmallScreen?"10px":"20px"} />
           ))}
     {props.rating.count}
     </Box>

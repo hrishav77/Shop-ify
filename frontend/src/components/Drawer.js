@@ -15,7 +15,7 @@ export default function CategoryDrawer(props) {
     return (
       <>
         
-        <Button size="sm" colorScheme='teal' onClick={onOpen}>
+        <Button size="sm" colorScheme='yellow' onClick={onOpen}>
           Categories<ChevronDownIcon/>
         </Button>
         <Drawer placement="top" onClose={onClose} isOpen={isOpen}>

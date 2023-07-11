@@ -1,10 +1,14 @@
 import React, { useContext} from 'react';
-import { FormControl, Input, IconButton } from '@chakra-ui/react';
+import { FormControl, Input, IconButton ,useMediaQuery} from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons'
 import { CartContext } from './context/Cartcontext';
 import { useNavigate } from 'react-router-dom';
 
 const SearchForm = () => {
+  const [isSmallScreen, isDisplayingInBrowser] = useMediaQuery([
+    "(max-width: 900px)",
+    "(display-mode: browser)",
+  ])
   const a=useContext(CartContext)
   const navigate = useNavigate();
   const handleSearch = () => {
@@ -23,14 +27,13 @@ const SearchForm = () => {
         <Input
           type="text"
           placeholder="Search"
-          w="900px"
+          w={isSmallScreen ? "80%" : "900px"}
           ml="3"
           value={a.searchQuery}
           onChange={(e) => a.setSearchQuery(e.target.value)}
           size="md"
-      
         />
-        <IconButton ml={2} type="submit" colorScheme='teal' aria-label='Search database' icon={<SearchIcon />}/>   
+        <IconButton m="3" type="submit" colorScheme='yellow' aria-label='Search database' icon={<SearchIcon />}/>   
       </FormControl>
     </form>
   );
