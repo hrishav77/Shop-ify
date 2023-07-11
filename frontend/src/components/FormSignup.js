@@ -34,16 +34,17 @@ const FormSignup = () => {
     width={['80%', '400px']}
     height="30%"
     p={4}
-    bg="gray.100"
+    // bg="gray.100"
     borderRadius="md"
     boxShadow="lg"
-    ml={isSmallScreen?"8":"20"}
-    mt={isSmallScreen?"4":"25"}
-    backgroundColor="lightyellow"
-    border="2px solid gold"
+    margin="0 auto"
+    
+    mt="20"
+    // backgroundColor="lightyellow"
+    // border="2px solid gold"
     >
         
-      <Heading as="h2" size="md" textAlign="center" mb={4} color="blackAlpha.800">
+      <Heading as="h2" size="md" textAlign="center" fontSize="3xl" mb={4} color="blackAlpha.800">
         Signup
       </Heading>
       <form onSubmit={handleSubmit}>
@@ -56,7 +57,7 @@ const FormSignup = () => {
             <FormLabel fontWeight="bold">Password:</FormLabel>
             <Input type="password" value={password} onChange={handlePasswordChange} bg="white"/>
           </FormControl>
-          <Button type="submit" colorScheme="yellow" variant="outline" fontWeight="bold">Sign Up</Button>
+          <Button type="submit" colorScheme="yellow"  fontWeight="bold">Sign Up</Button>
           {error && <Box bg="red.100" color="red" borderRadius="3" p="1" border="red solid 1px" fontSize="sm">{error}</Box>}
           
         </Stack>

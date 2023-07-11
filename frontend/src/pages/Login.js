@@ -28,17 +28,16 @@ const LoginForm = () => {
     <Box
     width={['80%', '400px']}
     p={4}
-    bg="gray.100"
+    // bg="gray.100"
     borderRadius="md"
-    border="2px gold solid"
     boxShadow="lg"
     margin="0 auto"
     mt={20}
-    backgroundColor= "yellow.100"
+    // backgroundColor= "yellow.100"
    
 
     >
-      <Heading as="h2" size="md" textAlign="center" mb={4} color="blackAlpha.800">
+      <Heading as="h2" size="md" fontSize="3xl" textAlign="center" mb={4} color="blackAlpha.800">
         Login
       </Heading>
       <form onSubmit={handleSubmit}>
@@ -51,7 +50,7 @@ const LoginForm = () => {
             <FormLabel fontWeight="bold">Password:</FormLabel>
             <Input type="password" value={password} onChange={handlePasswordChange} />
           </FormControl>
-          <Button type="submit" colorScheme="yellow" variant="outline" disabled={isLoading} fontWeight="bold">Log in</Button>
+          <Button type="submit" colorScheme="yellow"  disabled={isLoading} fontWeight="bold">Log in</Button>
           {error && <Box bg="red.100" color="red" borderRadius="3" p="1" border="red solid 1px" fontSize="sm">{error}</Box>}
         </Stack>
       </form>

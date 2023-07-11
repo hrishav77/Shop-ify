@@ -10,7 +10,7 @@ export default function ProductUnit() {
     ])
     const[added,setadd]=useState(false)
   return (
-    <Flex style={{ background:"white", color: 'black' }}>
+    <Flex style={{color: 'black' }}>
     <Box flex="0 0 40%">
         <Box m={isSmallScreen?"2":"10"}>
         <Image src={a.product.url}  borderRadius="5%" m={isSmallScreen?"1":"5"} />

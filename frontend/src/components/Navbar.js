@@ -30,7 +30,7 @@ logout()
       justify="space-between"
       padding="1rem"
     
-      style={user?{ background: "white" }:{color:"goldenrod"}}
+      style={user?{ }:{color:"goldenrod"}}
     >
     
 
