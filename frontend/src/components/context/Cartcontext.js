@@ -18,6 +18,7 @@ const CartProvider=(props)=>{
       const cartjson=await data.json()
       if(data.ok){
         setItem(cartjson)
+        console.log(cartjson)
       }
      
     }
@@ -59,33 +60,33 @@ const CartProvider=(props)=>{
   }
     const Addtocart=async({title,url,price,id,quantity})=>{
       
-      const existingItemResponse = await fetch(`https://shop-ify.onrender.com/cart/productid/${id}`,{
-        headers:{
-          'Authorization':`Bearer ${user.token}`
-        }});
-      const existingItem = await existingItemResponse.json();
+      // const existingItemResponse = await fetch(`https://shop-ify.onrender.com/cart/productid/${id}`,{
+      //   headers:{
+      //     'Authorization':`Bearer ${user.token}`
+      //   }});
+      // const existingItem = await existingItemResponse.json();
       
-      if (existingItem.length > 0) {
-        // Item already exists, increase the quantity by 1
-        const existingItemId = existingItem[0].prod_id;
-        const updatedQuantity = existingItem[0].quantity + 1;
+      // if (existingItem.length > 0) {
+      //   // Item already exists, increase the quantity by 1
+      //   const existingItemId = existingItem[0].prod_id;
+      //   const updatedQuantity = existingItem[0].quantity + 1;
         
-        // Update the quantity of the existing item in the cart
-        const updateResponse = await fetch(`https://shop-ify.onrender.com/cart/${existingItemId}`, {
-          method: "put",
-          body: JSON.stringify({quantity:updatedQuantity }),
-          headers: {
-            "Content-Type": "application/json",
-            'Authorization':`Bearer ${user.token}`
-          }
-        });
+      //   // Update the quantity of the existing item in the cart
+      //   const updateResponse = await fetch(`https://shop-ify.onrender.com/cart/${existingItemId}`, {
+      //     method: "put",
+      //     body: JSON.stringify({quantity:updatedQuantity }),
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       'Authorization':`Bearer ${user.token}`
+      //     }
+      //   });
     
-        if (!updateResponse.ok) {
-          const updateJson = await updateResponse.json();
-          console.log(updateJson.error);
-        }
-      } 
-      else{
+      //   if (!updateResponse.ok) {
+      //     const updateJson = await updateResponse.json();
+      //     console.log(updateJson.error);
+      //   }
+      // } 
+      
         const data = { title:title,quantity:quantity, image:url, cost:price,prod_id:id };
         // console.log(data)
         const response=await fetch("https://shop-ify.onrender.com/cart",{
@@ -97,9 +98,13 @@ const CartProvider=(props)=>{
           }
       })
               const json=await response.json()
-              setCartCount(cartCount+1)
+              if(response.ok){
+                setCartCount(cartCount+1)
+                console.log(response)
+              }
+              
               if(!response.ok){console.log(json.error)}
-    }
+    
       }
     
     return (
